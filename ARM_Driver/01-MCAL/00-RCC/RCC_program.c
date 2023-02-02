@@ -1,10 +1,10 @@
-#include "LIB/BIT_MATH.h"
-#include "LIB/STD_TYPES.h"
+#include "../../00-LIB/STD_TYPES.h"
+#include "../../00-LIB/BIT_MATH.h"
 
-#include "MCAL/RCC/RCC_register.h"
-#include "MCAL/RCC/RCC_private.h"
-#include "MCAL/RCC/RCC_interface.h"
-#include "MCAL/RCC/RCC_config.h"
+#include "../00-RCC/RCC_config.h"
+#include "../00-RCC/RCC_interface.h"
+#include "../00-RCC/RCC_private.h"
+#include "../00-RCC/RCC_register.h"
 
 
 void RCC_voidInitSysClock(void)
@@ -79,12 +79,12 @@ u8 RCC_voidEnableClock(u8 Copy_u8PeripheralID,u8 Copy_u8BusId)
 		case RCC_AHB:  SET_BIT(RCC->AHBENR,	Copy_u8PeripheralID); break;
 		case RCC_APB1: SET_BIT(RCC->APB1ENR,Copy_u8PeripheralID); break;
 		case RCC_APB2: SET_BIT(RCC->APB2ENR,Copy_u8PeripheralID); break;
-		default: 	   Local_u8ErrorState = NOT_OK; break;
+		default: 	   Local_u8ErrorState = NOK; break;
 		}
 	}
 	else
 	{
-		Local_u8ErrorState = NOT_OK;
+		Local_u8ErrorState = NOK;
 	}
 
 	return Local_u8ErrorState;
@@ -101,12 +101,12 @@ u8 RCC_voidDisableClock(u8 Copy_u8PeripheralID,u8 Copy_u8BusId)
 		case RCC_AHB:  CLR_BIT(RCC->AHBENR,	Copy_u8PeripheralID); break;
 		case RCC_APB1: CLR_BIT(RCC->APB1ENR,Copy_u8PeripheralID); break;
 		case RCC_APB2: CLR_BIT(RCC->APB2ENR,Copy_u8PeripheralID); break;
-		default: 	   Local_u8ErrorState = NOT_OK; break;
+		default: 	   Local_u8ErrorState = NOK; break;
 		}
 	}
 	else
 	{
-		Local_u8ErrorState = NOT_OK;
+		Local_u8ErrorState = NOK;
 	}
 
 	return Local_u8ErrorState;
