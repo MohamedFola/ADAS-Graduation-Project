@@ -4,12 +4,11 @@
  *  Created on: Jan 28, 2023
  *      Author: speedTECH
  */
-#include "STD_TYPES.h"
-#include "BIT_MATH.h"
+#include "../../00-LIB/STD_TYPES.h"
+#include "../../00-LIB/BIT_MATH.h"
 
-
-#include "DIO_private.h"
-#include "DIO_interface.h"
+#include "../02-DIO/DIO_private.h"
+#include "../02-DIO/DIO_interface.h"
 
 /* WriteChannel is used to set pin to High or Low */
 u8 MDIO_u8WriteChannel(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8Value)
