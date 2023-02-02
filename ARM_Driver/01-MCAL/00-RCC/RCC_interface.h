@@ -14,6 +14,7 @@
 #define RCC_APB2	2
 
 //Peripherals you choose when you enable it for APB2 bus
+#define RCC_AFIO 	0
 #define RCC_GPIOA 	2
 #define RCC_GPIOB 	3
 #define RCC_GPIOC 	4

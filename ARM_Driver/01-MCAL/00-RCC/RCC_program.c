@@ -12,10 +12,10 @@ void RCC_voidInitSysClock(void)
 	/*Selecting the Clock switch of the bus*/
 #if SYSTEM_CLK == SYS_CLK_HSI
 	/*Choosing system clock switch without choosing prescaler*/
-	RC->CFGR = 0;
+	RCC->CFGR = 0;
 
 	/*Turn ON HSI with no trimming*/
-	RCC->CR = 0x00000081
+	RCC->CR = 0x00000081;
 
 #elif SYSTEM_CLK == SYS_CLK_HSE_CRYSTAL
 	/*Selecting HSE as system clock without choosing prescaler*/
@@ -35,13 +35,13 @@ void RCC_voidInitSysClock(void)
 /*Selecting the source of PLL*/
 #if PLL_INPUT == RCC_PLL_IN_HSE
 	/*Set PLL Source with HSE with choosen Multiplier*/
-	RCC->CFGR = 0x00010000 || PLL_MUL_VALUE;
+	RCC->CFGR = 0x00010002 | PLL_MUL_VALUE;
 	/*Enable PLL with HSE with not bypassed oscillator*/
 	RCC->CR = 0x01010080;
 
 #elif PLL_INPUT == RCC_PLL_IN_HSE_DIV_2
 	/*Set PLL Source with HSE/2 with choosen Multiplier*/
-	RCC->CFGR = 0x00030000 || PLL_MUL_VALUE;
+	RCC->CFGR = 0x00030002 | PLL_MUL_VALUE;
 
 	/*Enable PLL with HSE with not bypassed oscillator*/
 	RCC->CR = 0x01010080;
@@ -49,7 +49,7 @@ void RCC_voidInitSysClock(void)
 
 #elif PLL_INPUT == RCC_PLL_IN_HSI_DIV_2
 	/*Set PLL Source with HSI/2 with choosen Multiplier*/
-	RCC->CFGR = PLL_MUL_VALUE;
+	RCC->CFGR = 0x00000002 | PLL_MUL_VALUE;
 	/*Enable PLL with HSI*/
 	RCC->CR = 0x01000081;
 #endif
