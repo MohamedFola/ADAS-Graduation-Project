@@ -5,12 +5,12 @@
  *      Author: speedTECH
  */
 
-#include "STD_TYPES.h"
-#include "BIT_MATH.h"
+#include "../../00-LIB/STD_TYPES.h"
+#include "../../00-LIB/BIT_MATH.h"
 
-#include "STK_interface.h"
-#include "STK_private.h"
-#include "STK_config.h"
+#include "../03-STK/STK_interface.h"
+#include "../03-STK/STK_private.h"
+#include "../03-STK/STK_config.h"
 
 volatile void (*Global_voidPtrCallbackFunc) (void);
 static u8 MSTK_u8ModeOfinterval;
