@@ -99,6 +99,7 @@ volatile  u32	DMAR    		;
 
 
 
+
 /***** event generation register****/
 /**
 THIS BIT RELOADS THE AUTO RELOAD REGISTER 

@@ -18,7 +18,7 @@ ALL_SOURCES :
 OVERFLOW_UNDERFLOW_ONLY :
 -Only counter overflow/underflow generates an update interrupt.
 */
-#define		TIM2_UPDATE_REQUEST_SOURCE			ALL_SOURCES	
+#define		TIM2_UPDATE_REQUEST_SOURCE			ALL_SOURCES
 #define		TIM3_UPDATE_REQUEST_SOURCE			ALL_SOURCES		
 
 /*  Direction
@@ -58,7 +58,7 @@ ARR_BUFFERED: 		TIMx_ARR register is buffered
 Capture/Compare interupt enable 
 ***/
 
-#define 	TIM2_CAPTURE_COMPARE_INTRUPT_STATUS				ENABLED	
+#define 	TIM2_CAPTURE_COMPARE_INTRUPT_STATUS				DISABLED
 #define 	TIM3_CAPTURE_COMPARE_INTRUPT_STATUS				DISABLED
 
 
