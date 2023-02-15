@@ -4,10 +4,10 @@
 
 #include "EXTI_interface.h"
 #include "EXTI_register.h"
-#include "EXTI_private.h"
 #include "EXTI_config.h"
+#include "EXTI_private.h"
 
-
+static void (*Global_pvEXTICallBackFunc[16])(void) = {NULL};
 
 void MEXTI_voidInit()
 {
@@ -32,7 +32,7 @@ u8 MEXTI_u8EnableEXTI(u8 Copy_u8Line)
 {
 	u8 Local_u8ErrorState= OK;
 
-	if(Copy_u8Line <= LINE15)
+	if(Copy_u8Line <= MEXTI_LINE15)
 	{
 		SET_BIT(EXTI->IMR,Copy_u8Line);
 	}
@@ -48,7 +48,7 @@ u8 MEXTI_u8DisableEXTI(u8 Copy_u8Line)
 {
 	u8 Local_u8ErrorState= OK;
 
-	if(Copy_u8Line <= LINE15)
+	if(Copy_u8Line <= MEXTI_LINE15)
 	{
 		CLR_BIT(EXTI->IMR,Copy_u8Line);
 	}
@@ -64,7 +64,7 @@ u8 MEXTI_u8SwTrigger(u8 Copy_u8Line)
 {
 	u8 Local_u8ErrorState= OK;
 
-	if(Copy_u8Line <= LINE15)
+	if(Copy_u8Line <= MEXTI_LINE15)
 	{
 		SET_BIT(EXTI->SWIER,Copy_u8Line);
 	}
@@ -76,9 +76,12 @@ u8 MEXTI_u8SwTrigger(u8 Copy_u8Line)
 	return Local_u8ErrorState;
 }
 
-u8 EXTI_u8SetSignalLatch(u8 Copy_u8Line, u8 Copu_u8Mode)
+u8 MEXTI_u8SetSignalLatch(u8 Copy_u8Line, u8 Copu_u8Mode)
 {
 	u8 Local_u8ErrorState= OK;
+
+	/*Disable Interrupt*/
+	CLR_BIT(EXTI->IMR,Copy_u8Line);
 
 	switch(Copu_u8Mode)
 	{
@@ -91,8 +94,113 @@ u8 EXTI_u8SetSignalLatch(u8 Copy_u8Line, u8 Copu_u8Mode)
 	default: Local_u8ErrorState = NOK; break;
 	}
 
-	/*Enable Interrupt*/
-	SET_BIT(EXTI->IMR,Copy_u8Line);
 
 	return Local_u8ErrorState;
 }
+
+u8 MEXTI_voidSetCallBackFunc(u8 Copy_u8Line, void (*Copy_pvNotificationFunc)(void))
+{
+	u8 Local_u8ErrorState = OK;
+
+	if(Copy_u8Line <= MEXTI_LINE15)
+	{
+		if(Copy_pvNotificationFunc != NULL)
+		{
+			/*Declaring the call back function*/
+			Global_pvEXTICallBackFunc[Copy_u8Line] = Copy_pvNotificationFunc;
+		}
+		else
+		{
+			Local_u8ErrorState = NULL_POINTER;
+		}
+
+	}
+	else
+	{
+		Local_u8ErrorState = NOK;
+	}
+
+	return Local_u8ErrorState;
+}
+
+void EXTI0_IRQHandler(void)
+{
+	if(Global_pvEXTICallBackFunc[MEXTI_LINE0] != NULL)
+	{
+		/*Calling the Call back function*/
+		Global_pvEXTICallBackFunc[MEXTI_LINE0]();
+
+		/*Clearing Pending bit*/
+		CLR_BIT(EXTI->PR,MEXTI_LINE0);
+	}
+	else
+	{
+		/*Do Nothing*/
+	}
+}
+
+void EXTI1_IRQHandler(void)
+{
+	if(Global_pvEXTICallBackFunc[MEXTI_LINE1] != NULL)
+	{
+		/*Calling the Call back function*/
+		Global_pvEXTICallBackFunc[MEXTI_LINE1]();
+
+		/*Clearing Pending bit*/
+		CLR_BIT(EXTI->PR,MEXTI_LINE1);
+	}
+	else
+	{
+		/*Do Nothing*/
+	}
+
+}
+
+void EXTI2_IRQHandler(void)
+{
+	if(Global_pvEXTICallBackFunc[MEXTI_LINE2] != NULL)
+	{
+		/*Calling the Call back function*/
+		Global_pvEXTICallBackFunc[MEXTI_LINE2]();
+
+		/*Clearing Pending bit*/
+		CLR_BIT(EXTI->PR,MEXTI_LINE2);
+	}
+	else
+	{
+		/*Do Nothing*/
+	}
+}
+
+void EXTI3_IRQHandler(void)
+{
+	if(Global_pvEXTICallBackFunc[MEXTI_LINE3] != NULL)
+	{
+		/*Calling the Call back function*/
+		Global_pvEXTICallBackFunc[MEXTI_LINE3]();
+
+		/*Clearing Pending bit*/
+		CLR_BIT(EXTI->PR,MEXTI_LINE3);
+	}
+	else
+	{
+		/*Do Nothing*/
+	}
+}
+
+void EXTI4_IRQHandler(void)
+{
+	if(Global_pvEXTICallBackFunc[MEXTI_LINE4] != NULL)
+	{
+		/*Calling the Call back function*/
+		Global_pvEXTICallBackFunc[MEXTI_LINE4]();
+
+		/*Clearing Pending bit*/
+		CLR_BIT(EXTI->PR,MEXTI_LINE4);
+	}
+	else
+	{
+		/*Do Nothing*/
+	}
+}
+
