@@ -35,6 +35,8 @@
 #define NVIC_USART3					39
 
 
+/**/
+
 /*Functions to Enable or Disable NVIC Interrupt*/
 u8 MNVIC_u8EnableInterrupt(u8 Copy_u8IntNumber);
 
@@ -48,16 +50,8 @@ u8 MNVIC_u8ClrPendingFlag(u8 Copy_u8IntNumber);
 /*Function to get active flag bit of interrupts*/
 u8 MNVIC_u8GetActiveFlag(u8 Copy_u8IntNumber, u8* Copy_u8ActiveFlagReading);
 
-
-/*Options to be passed in SetPriority Function to decide how many groups and subgroups*/
-#define FIRST_GROUP			0x05FA0300		/*You can access 4 bits to make groups only*/
-#define SECOND_GROUP 		0x05FA0400		/*You can access 3 bits to make groups and 1 bit to subgroup*/
-#define THIRD_GROUP			0x05FA0500		/*You can access 2 bits to make groups and 2 bits to subgroup*/
-#define FOURTH_GROUP		0x05FA0600		/*You can access 1 bits to make groups and 3 bits to subgroup*/
-#define FIFTH_GROUP			0x05FA0700		/*You can access 4 bits to make subgroups only*/
-
 /*Function to set the priority of the interrupt*/
-u8 MNVIC_u8SetPriority(s8 Copy_s8IntID , u8 Copy_u8GroupPriority , u8 Copy_u8SubGroupPriority, u32 Copy_u32PriorityMode);
+u8 MNVIC_u8SetPriority(s8 Copy_s8IntID , u8 Copy_u8GroupPriority , u8 Copy_u8SubGroupPriority);
 
 
 #endif

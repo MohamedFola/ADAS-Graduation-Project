@@ -1,56 +1,32 @@
 #ifndef NVIC_REGISTER_H
 #define NVIC_REGISTER_H
 
+/*NVIC Registers*/
 #define NVIC_BASE_ADDRESS		0xE000E100
 
-typedef struct
-{
-	u32 ISER0;		/*Enable External Interrupts from 0 to 31*/
-	u32 ISER1;		/*Enable External Interrupts from 32 to 63*/
-	u32 ISER2;
-	u32 ICER0;		/*Disable External Interrupts from 0 to 31*/
-	u32 ICER1;		/*Disable External Interrupts from 32 to 63*/
-	u32 ICER2;
-	u32 ISPR0;		/*Enable Pending flags of Interrupts from 0 to 31*/
-	u32 ISPR1;		/*Enable Pending flags of Interrupts from 32 to 63*/
-	u32 ISPR2;
-	u32 ICPR0;      /*Disable Pending flags of Interrupts from 0 to 31*/
-	u32 ICPR1;      /*Disable Pending flags of Interrupts from 32 to 63*/
-	u32 ICPR2;
-	u32 IABR0;		/*Read Active flags of Interrupts from 0 to 31*/
-	u32 IABR1;		/*Read Active flags of Interrupts from 32 to 63*/
-	u32 IABR2;
-}NVIC_MemMap_t;
+#define NVIC_ISER0				*((volatile u32*)(NVIC_BASE_ADDRESS+0x000))          /*Enable External Interrupts from 0 to 31*/
+#define NVIC_ISER1				*((volatile u32*)(NVIC_BASE_ADDRESS+0x004))          /*Enable External Interrupts from 32 to 63*/
+#define NVIC_ISER2				*((volatile u32*)(NVIC_BASE_ADDRESS+0x008))
 
-#define NVIC					((volatile NVIC_MemMap_t*)(NVIC_BASE_ADDRESS))
+#define NVIC_ICER0				*((volatile u32*)(NVIC_BASE_ADDRESS+0x080))          /*Disable External Interrupts from 0 to 31*/
+#define NVIC_ICER1				*((volatile u32*)(NVIC_BASE_ADDRESS+0x084))          /*Disable External Interrupts from 32 to 63*/
+#define NVIC_ICER2				*((volatile u32*)(NVIC_BASE_ADDRESS+0x088))
+
+#define NVIC_ISPR0				*((volatile u32*)(NVIC_BASE_ADDRESS+0x100))          /*Enable Pending flags of Interrupts from 0 to 31*/
+#define NVIC_ISPR1				*((volatile u32*)(NVIC_BASE_ADDRESS+0x104))          /*Enable Pending flags of Interrupts from 32 to 63*/
+#define NVIC_ISPR2				*((volatile u32*)(NVIC_BASE_ADDRESS+0x108))
+
+#define NVIC_ICPR0				*((volatile u32*)(NVIC_BASE_ADDRESS+0x180))          /*Disable Pending flags of Interrupts from 0 to 31*/
+#define NVIC_ICPR1				*((volatile u32*)(NVIC_BASE_ADDRESS+0x184))          /*Disable Pending flags of Interrupts from 32 to 63*/
+#define NVIC_ICPR2				*((volatile u32*)(NVIC_BASE_ADDRESS+0x188))
+
+#define NVIC_IABR0				*((volatile u32*)(NVIC_BASE_ADDRESS+0x200))          /*Read Active flags of Interrupts from 0 to 31*/
+#define NVIC_IABR1				*((volatile u32*)(NVIC_BASE_ADDRESS+0x204))          /*Read Active flags of Interrupts from 32 to 63*/
+#define NVIC_IABR2				*((volatile u32*)(NVIC_BASE_ADDRESS+0x208))
 
 #define NVIC_IPR				((volatile u8*)(NVIC_BASE_ADDRESS+0X300))
+
 #define NVIC_STIR 				*((volatile u32*)(NVIC_BASE_ADDRESS+0xE00))
 
-
-/*System Control Block Registers*/
-#define SCB_BASE_ADDRESS		0xE000ED00
-
-#define SCB_ACTLR				*((volatile u32*)(SCB_BASE_ADDRESS))
-
-typedef struct
-{
-	u32 CPUID;
-	u32 ICSR;
-	u32 VTOR;
-	u32 AIRCR;
-	u32 SCR;
-	u32 CCR;
-	u32 SHPR1;
-	u32 SHPR2;
-	u32 SHPR3;
-	u32 SHCRS;
-	u32 CFSR;
-	u32 HFSR;
-	u32 MMAR;
-	u32 BFAR;
-}SCB_MemMap_t;
-
-#define SCB						((volatile SCB_MemMap_t*)(SCB_BASE_ADDRESS))
 
 #endif
