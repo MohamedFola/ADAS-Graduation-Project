@@ -2,6 +2,4 @@
 #define EXTI_PRIVATE_H
 
 
-
-
 #endif

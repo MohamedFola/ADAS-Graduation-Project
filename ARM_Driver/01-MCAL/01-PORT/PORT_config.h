@@ -30,14 +30,14 @@
 /****************************************************************************/
 
 /* PortA */
-#define PORTA_PIN0_MODE                    PORT_DEFAULT_MODE
+#define PORTA_PIN0_MODE                    PORT_OUTPUT_GENERAL_PURPOSE_PUSH_PULL_MAX_SPEED_50MHZ
 #define PORTA_PIN1_MODE                    PORT_DEFAULT_MODE
 #define PORTA_PIN2_MODE                    PORT_DEFAULT_MODE
 #define PORTA_PIN3_MODE                    PORT_DEFAULT_MODE
 #define PORTA_PIN4_MODE                    PORT_DEFAULT_MODE
-#define PORTA_PIN5_MODE                    PORT_DEFAULT_MODE
-#define PORTA_PIN6_MODE                    PORT_DEFAULT_MODE
-#define PORTA_PIN7_MODE                    PORT_DEFAULT_MODE
+#define PORTA_PIN5_MODE                    PORT_OUTPUT_ALTERNATE_FUNCTION_PUSH_PULL_MAX_SPEED_50MHZ
+#define PORTA_PIN6_MODE                    PORT_INPUT_FLOATING_MODE
+#define PORTA_PIN7_MODE                    PORT_OUTPUT_ALTERNATE_FUNCTION_PUSH_PULL_MAX_SPEED_50MHZ
 #define PORTA_PIN8_MODE                    PORT_DEFAULT_MODE
 #define PORTA_PIN9_MODE                    PORT_DEFAULT_MODE
 #define PORTA_PIN10_MODE                   PORT_DEFAULT_MODE

@@ -6,8 +6,8 @@
 /***************************************************************************/
 
 
-#include	"STD_TYPES.h"
-#include	"BIT_MATH.h"
+#include    "../../00-LIB/STD_TYPES.h"
+#include    "../../00-LIB/BIT_MATH.h"
 
 #include	"TIM_interface.h"
 #include	"TIM_private.h"

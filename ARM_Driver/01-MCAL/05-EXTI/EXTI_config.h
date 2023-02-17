@@ -4,10 +4,10 @@
 
 /*Choose the line of external interrupt to work on it*/
 /*Options:
- *			LINEx		(0 --> 15)
+ *			MEXTI_LINEx		(0 --> 15)
  * */
 
-#define EXTI_LINE 			LINE0
+#define EXTI_LINE 			MEXTI_LINE0
 
 /*Choose the mode of the external interrupts*/
 /*Options:
