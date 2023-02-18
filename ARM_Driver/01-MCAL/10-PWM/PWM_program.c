@@ -240,7 +240,7 @@ u8 MPWM2_SetDutyCycle(u8 Copy_u8ChannelNumber,u16 Copy_u16DutyCycle)
 			/*Output compare channel 1 enable */
 			SET_BIT(TIM2->CCER,TIM_CCER_CC1E);
 			/*Set the duty cycle in the CCR1 register*/
-			TIM2->CCR1=PWM_PERIOD-Copy_u16DutyCycle;
+			TIM2->CCR1=PWM2_PERIOD-Copy_u16DutyCycle;
 			break;
 		case CH2:	/*Maps to PA1*/
 			/*Output compare preload enable*/
@@ -248,7 +248,7 @@ u8 MPWM2_SetDutyCycle(u8 Copy_u8ChannelNumber,u16 Copy_u16DutyCycle)
 			/*Output compare channel 2 enable */
 			SET_BIT(TIM2->CCER,TIM_CCER_CC2E);
 			/*Set the duty cycle in the CCR1 register*/
-			TIM2->CCR2=PWM_PERIOD-Copy_u16DutyCycle;
+			TIM2->CCR2=PWM2_PERIOD-Copy_u16DutyCycle;
 			break;
 		case CH3:	/*Maps to PA2*/
 			/*Output compare preload enable*/
@@ -256,7 +256,7 @@ u8 MPWM2_SetDutyCycle(u8 Copy_u8ChannelNumber,u16 Copy_u16DutyCycle)
 			/*Output compare channel 3 enable */
 			SET_BIT(TIM2->CCER,TIM_CCER_CC3E);
 			/*Set the duty cycle in the CCR1 register*/
-			TIM2->CCR3=PWM_PERIOD-Copy_u16DutyCycle;
+			TIM2->CCR3=PWM2_PERIOD-Copy_u16DutyCycle;
 			break;
 		case CH4:	/*Maps to PA4*/
 			/*Output compare preload enable*/
@@ -264,7 +264,7 @@ u8 MPWM2_SetDutyCycle(u8 Copy_u8ChannelNumber,u16 Copy_u16DutyCycle)
 			/*Output compare channel 4 enable */
 			SET_BIT(TIM2->CCER,TIM_CCER_CC4E);
 			/*Set the duty cycle in the CCR1 register*/
-			TIM2->CCR4=PWM_PERIOD-Copy_u16DutyCycle;
+			TIM2->CCR4=PWM2_PERIOD-Copy_u16DutyCycle;
 			break;
 		default:Local_u8ErrorStatus=NOK;
 		}
@@ -274,7 +274,7 @@ u8 MPWM2_SetDutyCycle(u8 Copy_u8ChannelNumber,u16 Copy_u16DutyCycle)
 		Local_u8ErrorStatus=NOK;
 	}
 	/*Reload the Period time in the ARR*/
-	TIM2->ARR=PWM_PERIOD;
+	TIM2->ARR=PWM2_PERIOD;
 	/*initialize all the registers by setting the UG bit*/
 	SET_BIT(TIM2->EGR,TIM_EGR_UG);
 	/*Counter enable*/
@@ -297,7 +297,7 @@ u8 MPWM3_SetDutyCycle(u8 Copy_u8ChannelNumber,u16 Copy_u16DutyCycle)
 			/*Output compare channel 1 enable */
 			SET_BIT(TIM3->CCER,TIM_CCER_CC1E);
 			/*Set the duty cycle in the CCR1 register*/
-			TIM3->CCR1=PWM_PERIOD-Copy_u16DutyCycle;
+			TIM3->CCR1=PWM3_PERIOD-Copy_u16DutyCycle;
 			break;
 		case CH2:	/*Maps to PA1*/
 			/*Output compare preload enable*/
@@ -305,7 +305,7 @@ u8 MPWM3_SetDutyCycle(u8 Copy_u8ChannelNumber,u16 Copy_u16DutyCycle)
 			/*Output compare channel 2 enable */
 			SET_BIT(TIM3->CCER,TIM_CCER_CC2E);
 			/*Set the duty cycle in the CCR1 register*/
-			TIM3->CCR2=PWM_PERIOD-Copy_u16DutyCycle;
+			TIM3->CCR2=PWM3_PERIOD-Copy_u16DutyCycle;
 			break;
 		case CH3:	/*Maps to PA2*/
 			/*Output compare preload enable*/
@@ -313,7 +313,7 @@ u8 MPWM3_SetDutyCycle(u8 Copy_u8ChannelNumber,u16 Copy_u16DutyCycle)
 			/*Output compare channel 3 enable */
 			SET_BIT(TIM3->CCER,TIM_CCER_CC3E);
 			/*Set the duty cycle in the CCR1 register*/
-			TIM3->CCR3=PWM_PERIOD-Copy_u16DutyCycle;
+			TIM3->CCR3=PWM3_PERIOD-Copy_u16DutyCycle;
 			break;
 		case CH4:	/*Maps to PA4*/
 			/*Output compare preload enable*/
@@ -321,7 +321,7 @@ u8 MPWM3_SetDutyCycle(u8 Copy_u8ChannelNumber,u16 Copy_u16DutyCycle)
 			/*Output compare channel 4 enable */
 			SET_BIT(TIM3->CCER,TIM_CCER_CC4E);
 			/*Set the duty cycle in the CCR1 register*/
-			TIM3->CCR4=PWM_PERIOD-Copy_u16DutyCycle;
+			TIM3->CCR4=PWM3_PERIOD-Copy_u16DutyCycle;
 			break;
 		default:Local_u8ErrorStatus=NOK;
 		}
@@ -331,7 +331,7 @@ u8 MPWM3_SetDutyCycle(u8 Copy_u8ChannelNumber,u16 Copy_u16DutyCycle)
 		Local_u8ErrorStatus=NOK;
 	}
 	/*Reload the Period time in the ARR*/
-	TIM3->ARR=PWM_PERIOD;
+	TIM3->ARR=PWM3_PERIOD;
 	/*initialize all the registers by setting the UG bit*/
 	SET_BIT(TIM3->EGR,TIM_EGR_UG);
 	/*Counter enable*/
@@ -353,7 +353,7 @@ u8 MPWM2_SetPeriodAndDuty(u8 Copy_u8ChannelNumber,u16 Copy_u16Period,u16 Copy_u1
 		/*Output compare channel 1 enable */
 		SET_BIT(TIM2->CCER,TIM_CCER_CC1E);
 		/*Set the duty cycle in the CCR1 register*/
-		TIM2->CCR1=PWM_PERIOD-Copy_u16DutyCycle;
+		TIM2->CCR1=Copy_u16Period - Copy_u16DutyCycle;
 		break;
 	case CH2:	/*Maps to PA1*/
 		/*Output compare preload enable*/
@@ -361,7 +361,7 @@ u8 MPWM2_SetPeriodAndDuty(u8 Copy_u8ChannelNumber,u16 Copy_u16Period,u16 Copy_u1
 		/*Output compare channel 2 enable */
 		SET_BIT(TIM2->CCER,TIM_CCER_CC2E);
 		/*Set the duty cycle in the CCR1 register*/
-		TIM2->CCR2=PWM_PERIOD-Copy_u16DutyCycle;
+		TIM2->CCR2=Copy_u16Period - Copy_u16DutyCycle;
 		break;
 	case CH3:	/*Maps to PA2*/
 		/*Output compare preload enable*/
@@ -369,7 +369,7 @@ u8 MPWM2_SetPeriodAndDuty(u8 Copy_u8ChannelNumber,u16 Copy_u16Period,u16 Copy_u1
 		/*Output compare channel 3 enable */
 		SET_BIT(TIM2->CCER,TIM_CCER_CC3E);
 		/*Set the duty cycle in the CCR1 register*/
-		TIM2->CCR3=PWM_PERIOD-Copy_u16DutyCycle;
+		TIM2->CCR3=Copy_u16Period - Copy_u16DutyCycle;
 		break;
 	case CH4:	/*Maps to PA4*/
 		/*Output compare preload enable*/
@@ -377,7 +377,7 @@ u8 MPWM2_SetPeriodAndDuty(u8 Copy_u8ChannelNumber,u16 Copy_u16Period,u16 Copy_u1
 		/*Output compare channel 4 enable */
 		SET_BIT(TIM2->CCER,TIM_CCER_CC4E);
 		/*Set the duty cycle in the CCR1 register*/
-		TIM2->CCR4=PWM_PERIOD-Copy_u16DutyCycle;
+		TIM2->CCR4=Copy_u16Period - Copy_u16DutyCycle;
 		break;
 	default:Local_u8ErrorStatus=NOK;
 	}
@@ -403,7 +403,7 @@ u8 MPWM3_SetPeriodAndDuty(u8 Copy_u8ChannelNumber,u16 Copy_u16Period,u16 Copy_u1
 		/*Output compare channel 1 enable */
 		SET_BIT(TIM3->CCER,TIM_CCER_CC1E);
 		/*Set the duty cycle in the CCR1 register*/
-		TIM3->CCR1=PWM_PERIOD-Copy_u16DutyCycle;
+		TIM3->CCR1=Copy_u16Period - Copy_u16DutyCycle;
 		break;
 	case CH2:	/*Maps to PA1*/
 		/*Output compare preload enable*/
@@ -411,7 +411,7 @@ u8 MPWM3_SetPeriodAndDuty(u8 Copy_u8ChannelNumber,u16 Copy_u16Period,u16 Copy_u1
 		/*Output compare channel 2 enable */
 		SET_BIT(TIM3->CCER,TIM_CCER_CC2E);
 		/*Set the duty cycle in the CCR1 register*/
-		TIM3->CCR2=PWM_PERIOD-Copy_u16DutyCycle;
+		TIM3->CCR2=Copy_u16Period - Copy_u16DutyCycle;
 		break;
 	case CH3:	/*Maps to PA2*/
 		/*Output compare preload enable*/
@@ -419,7 +419,7 @@ u8 MPWM3_SetPeriodAndDuty(u8 Copy_u8ChannelNumber,u16 Copy_u16Period,u16 Copy_u1
 		/*Output compare channel 3 enable */
 		SET_BIT(TIM3->CCER,TIM_CCER_CC3E);
 		/*Set the duty cycle in the CCR1 register*/
-		TIM3->CCR3=PWM_PERIOD-Copy_u16DutyCycle;
+		TIM3->CCR3=Copy_u16Period - Copy_u16DutyCycle;
 		break;
 	case CH4:	/*Maps to PA4*/
 		/*Output compare preload enable*/
@@ -427,7 +427,7 @@ u8 MPWM3_SetPeriodAndDuty(u8 Copy_u8ChannelNumber,u16 Copy_u16Period,u16 Copy_u1
 		/*Output compare channel 4 enable */
 		SET_BIT(TIM3->CCER,TIM_CCER_CC4E);
 		/*Set the duty cycle in the CCR1 register*/
-		TIM3->CCR4=PWM_PERIOD-Copy_u16DutyCycle;
+		TIM3->CCR4=Copy_u16Period - Copy_u16DutyCycle;
 		break;
 	default:Local_u8ErrorStatus=NOK;
 	}
