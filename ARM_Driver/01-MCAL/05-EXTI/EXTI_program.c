@@ -204,3 +204,100 @@ void EXTI4_IRQHandler(void)
 	}
 }
 
+
+void EXTI5_IRQHandler(void)
+{
+	if(Global_pvEXTICallBackFunc[MEXTI_LINE5] != NULL)
+	{
+		/*Calling the Call back function*/
+		Global_pvEXTICallBackFunc[MEXTI_LINE5]();
+
+		/*Clearing Pending bit*/
+		CLR_BIT(EXTI->PR,MEXTI_LINE5);
+	}
+	else
+	{
+		/*Do Nothing*/
+	}
+}
+
+void EXTI6_IRQHandler(void)
+{
+	if(Global_pvEXTICallBackFunc[MEXTI_LINE6] != NULL)
+	{
+		/*Calling the Call back function*/
+		Global_pvEXTICallBackFunc[MEXTI_LINE6]();
+
+		/*Clearing Pending bit*/
+		CLR_BIT(EXTI->PR,MEXTI_LINE6);
+	}
+	else
+	{
+		/*Do Nothing*/
+	}
+}
+
+void EXTI7_IRQHandler(void)
+{
+	if(Global_pvEXTICallBackFunc[MEXTI_LINE7] != NULL)
+	{
+		/*Calling the Call back function*/
+		Global_pvEXTICallBackFunc[MEXTI_LINE7]();
+
+		/*Clearing Pending bit*/
+		CLR_BIT(EXTI->PR,MEXTI_LINE7);
+	}
+	else
+	{
+		/*Do Nothing*/
+	}
+}
+
+void EXTI8_IRQHandler(void)
+{
+	if(Global_pvEXTICallBackFunc[MEXTI_LINE8] != NULL)
+	{
+		/*Calling the Call back function*/
+		Global_pvEXTICallBackFunc[MEXTI_LINE8]();
+
+		/*Clearing Pending bit*/
+		CLR_BIT(EXTI->PR,MEXTI_LINE8);
+	}
+	else
+	{
+		/*Do Nothing*/
+	}
+}
+
+void EXTI9_IRQHandler(void)
+{
+	if(Global_pvEXTICallBackFunc[MEXTI_LINE9] != NULL)
+	{
+		/*Calling the Call back function*/
+		Global_pvEXTICallBackFunc[MEXTI_LINE9]();
+
+		/*Clearing Pending bit*/
+		CLR_BIT(EXTI->PR,MEXTI_LINE9);
+	}
+	else
+	{
+		/*Do Nothing*/
+	}
+}
+
+void EXTI10_IRQHandler(void)
+{
+	if(Global_pvEXTICallBackFunc[MEXTI_LINE10] != NULL)
+	{
+		/*Calling the Call back function*/
+		Global_pvEXTICallBackFunc[MEXTI_LINE10]();
+
+		/*Clearing Pending bit*/
+		CLR_BIT(EXTI->PR,MEXTI_LINE10);
+	}
+	else
+	{
+		/*Do Nothing*/
+	}
+}
+
