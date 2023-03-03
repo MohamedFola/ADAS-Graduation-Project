@@ -131,7 +131,7 @@ void EXTI0_IRQHandler(void)
 		Global_pvEXTICallBackFunc[MEXTI_LINE0]();
 
 		/*Clearing Pending bit*/
-		CLR_BIT(EXTI->PR,MEXTI_LINE0);
+		SET_BIT(EXTI->PR,MEXTI_LINE0);
 	}
 	else
 	{
@@ -147,7 +147,7 @@ void EXTI1_IRQHandler(void)
 		Global_pvEXTICallBackFunc[MEXTI_LINE1]();
 
 		/*Clearing Pending bit*/
-		CLR_BIT(EXTI->PR,MEXTI_LINE1);
+		SET_BIT(EXTI->PR,MEXTI_LINE1);
 	}
 	else
 	{
@@ -164,7 +164,7 @@ void EXTI2_IRQHandler(void)
 		Global_pvEXTICallBackFunc[MEXTI_LINE2]();
 
 		/*Clearing Pending bit*/
-		CLR_BIT(EXTI->PR,MEXTI_LINE2);
+		SET_BIT(EXTI->PR,MEXTI_LINE2);
 	}
 	else
 	{
@@ -180,7 +180,7 @@ void EXTI3_IRQHandler(void)
 		Global_pvEXTICallBackFunc[MEXTI_LINE3]();
 
 		/*Clearing Pending bit*/
-		CLR_BIT(EXTI->PR,MEXTI_LINE3);
+		SET_BIT(EXTI->PR,MEXTI_LINE3);
 	}
 	else
 	{
@@ -196,7 +196,7 @@ void EXTI4_IRQHandler(void)
 		Global_pvEXTICallBackFunc[MEXTI_LINE4]();
 
 		/*Clearing Pending bit*/
-		CLR_BIT(EXTI->PR,MEXTI_LINE4);
+		SET_BIT(EXTI->PR,MEXTI_LINE4);
 	}
 	else
 	{
@@ -213,7 +213,7 @@ void EXTI5_IRQHandler(void)
 		Global_pvEXTICallBackFunc[MEXTI_LINE5]();
 
 		/*Clearing Pending bit*/
-		CLR_BIT(EXTI->PR,MEXTI_LINE5);
+		SET_BIT(EXTI->PR,MEXTI_LINE5);
 	}
 	else
 	{
@@ -229,7 +229,7 @@ void EXTI6_IRQHandler(void)
 		Global_pvEXTICallBackFunc[MEXTI_LINE6]();
 
 		/*Clearing Pending bit*/
-		CLR_BIT(EXTI->PR,MEXTI_LINE6);
+		SET_BIT(EXTI->PR,MEXTI_LINE6);
 	}
 	else
 	{
@@ -245,7 +245,7 @@ void EXTI7_IRQHandler(void)
 		Global_pvEXTICallBackFunc[MEXTI_LINE7]();
 
 		/*Clearing Pending bit*/
-		CLR_BIT(EXTI->PR,MEXTI_LINE7);
+		SET_BIT(EXTI->PR,MEXTI_LINE7);
 	}
 	else
 	{
@@ -261,7 +261,7 @@ void EXTI8_IRQHandler(void)
 		Global_pvEXTICallBackFunc[MEXTI_LINE8]();
 
 		/*Clearing Pending bit*/
-		CLR_BIT(EXTI->PR,MEXTI_LINE8);
+		SET_BIT(EXTI->PR,MEXTI_LINE8);
 	}
 	else
 	{
@@ -277,7 +277,7 @@ void EXTI9_IRQHandler(void)
 		Global_pvEXTICallBackFunc[MEXTI_LINE9]();
 
 		/*Clearing Pending bit*/
-		CLR_BIT(EXTI->PR,MEXTI_LINE9);
+		SET_BIT(EXTI->PR,MEXTI_LINE9);
 	}
 	else
 	{
@@ -293,7 +293,7 @@ void EXTI10_IRQHandler(void)
 		Global_pvEXTICallBackFunc[MEXTI_LINE10]();
 
 		/*Clearing Pending bit*/
-		CLR_BIT(EXTI->PR,MEXTI_LINE10);
+		SET_BIT(EXTI->PR,MEXTI_LINE10);
 	}
 	else
 	{
