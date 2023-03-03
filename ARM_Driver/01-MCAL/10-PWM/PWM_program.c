@@ -5,8 +5,8 @@
 /************************** 		  SWC : PWM      ***********************/
 /***************************************************************************/
 
-#include "STD_TYPES.h"
-#include "BIT_MATH.h"
+#include "../../00-LIB/STD_TYPES.h"
+#include "../../00-LIB/BIT_MATH.h"
 
 #include "PWM_interface.h"
 #include "PWM_private.h"
