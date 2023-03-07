@@ -7,10 +7,11 @@
 
 #ifndef    	TIM_PRIVATE_H
 #define    	TIM_PRIVATE_H
-/*Timer 2 and Timer 3 base Adresess*/
+
+/*Timer 2 , Timer 3 and Timer 4 base Addresses*/
 #define    	TIM2_BASE_ADD         0x40000000
 #define    	TIM3_BASE_ADD         0x40000400
-
+#define    	TIM4_BASE_ADD         0x40000800
 
 
 
@@ -47,6 +48,7 @@ volatile  u32	DMAR    		;
 
 #define TIM2  ((volatile TIM_MemMap_t*)(TIM2_BASE_ADD))
 #define TIM3  ((volatile TIM_MemMap_t*)(TIM3_BASE_ADD))
+#define TIM4  ((volatile TIM_MemMap_t*)(TIM4_BASE_ADD))
 
 
 #define TIM_CR1_CEN			0
@@ -107,9 +109,39 @@ volatile  u32	DMAR    		;
 
 /*Status Register*/
 #define TIM_SR_UIF						0
-
+#define TIM_SR_CC1IF					1
+#define TIM_SR_CC2IF					2
+#define TIM_SR_CC1OF					9
+#define TIM_SR_CC2OF					10
 
 
 #define ENABLED							1
 #define DISABLED						0
+
+/* ICU BITS*/
+#define TIM_CCMR1_CC1S0					0
+#define TIM_CCMR1_CC1S1					1
+
+#define TIM_CCER_CC1P					1
+#define TIM_CCER_CC2P					5
+
+#define TIM_CCER_CC1E					0
+#define TIM_CCER_CC2E					4
+
+#define TIM_CCMR1_IC1PSC0				2
+#define TIM_CCMR1_IC1PSC1				3
+#define TIM_CCMR1_CC2S0					8
+#define TIM_CCMR1_CC2S1					9
+
+#define TIM_SMCR_SMS0					0
+#define TIM_SMCR_SMS1					1
+#define TIM_SMCR_SMS2					2
+
+#define TIM_SMCR_TS0					4
+#define TIM_SMCR_TS1					5
+#define TIM_SMCR_TS2					6
+
+#define TIM_CR2_TI1S					7
+
+
 #endif
