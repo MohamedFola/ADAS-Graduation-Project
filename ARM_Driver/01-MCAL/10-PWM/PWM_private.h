@@ -11,7 +11,7 @@
 /*Timer 2 and Timer 3 base Adresess*/
 #define    	TIM2_BASE_ADD         0x40000000
 #define    	TIM3_BASE_ADD         0x40000400
-
+#define    	TIM4_BASE_ADD         0x40000800
 
 
 
@@ -48,7 +48,7 @@ volatile  u32	DMAR    		;
 
 #define TIM2  ((volatile TIM_MemMap_t*)(TIM2_BASE_ADD))
 #define TIM3  ((volatile TIM_MemMap_t*)(TIM3_BASE_ADD))
-
+#define TIM4  ((volatile TIM_MemMap_t*)(TIM4_BASE_ADD))
 
 #define TIM_CR1_CEN			0
 #define TIM_CR1_UDIS		1

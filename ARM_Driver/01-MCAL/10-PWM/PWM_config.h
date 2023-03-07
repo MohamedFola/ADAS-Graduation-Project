@@ -15,7 +15,7 @@ Note:PWM1 in upcounting Channel 1 is active while in downcounting channel 1 is i
  * */
 #define PWM2_MODE 			PWM_MODE_2
 #define PWM3_MODE 			PWM_MODE_2
-
+#define PWM4_MODE 			PWM_MODE_2
 
 /*
 Pwm polarity :
@@ -25,14 +25,15 @@ Pwm polarity :
 */
 #define PWM_TIM2POLARITY	ACTIVE_HIGH
 #define PWM_TIM3POLARITY	ACTIVE_HIGH
+#define PWM_TIM4POLARITY	ACTIVE_HIGH
 
 /*The period of the PWM is set to  20 MS
-1 Sec  - > 10000 Tik
+1 Sec  - > 10000 Tick
 
 */
 #define PWM2_PERIOD		200
 #define PWM3_PERIOD		200
-
+#define PWM4_PERIOD		200
 
 
 /*The enbale of each Channel and here is the 
@@ -45,17 +46,20 @@ for PWM2_CHANNEL_4:A3		for PWM3_CHANNEL_4 :B1
 
 
 
-#define PWM2_CHANNEL_1 ENABLED
-#define PWM2_CHANNEL_2 ENABLED
+#define PWM2_CHANNEL_1 DISABLED
+#define PWM2_CHANNEL_2 DISABLED
 #define PWM2_CHANNEL_3 ENABLED
-#define PWM2_CHANNEL_4 ENABLED
+#define PWM2_CHANNEL_4 DISABLED
 
 #define PWM3_CHANNEL_1 ENABLED
 #define PWM3_CHANNEL_2 ENABLED
 #define PWM3_CHANNEL_3 ENABLED
 #define PWM3_CHANNEL_4 ENABLED
 
-
+#define PWM4_CHANNEL_1 ENABLED
+#define PWM4_CHANNEL_2 ENABLED
+#define PWM4_CHANNEL_3 ENABLED
+#define PWM4_CHANNEL_4 ENABLED
 
 
 #endif /* PWM_CONFIG_H_ */
