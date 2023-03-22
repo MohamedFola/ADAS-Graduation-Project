@@ -8,24 +8,24 @@
 #ifndef _SPI_PRIVATE_H_
 #define _SPI_PRIVATE_H_
 
-#define SPI1_BASE_ADDRESS   0x40013000
-#define SPI2_BASE_ADDRESS   0x40003800
 
 typedef struct
 {
-	volatile u32 CR1;
-	volatile u32 CR2;
-	volatile u32 SR;
-	volatile u32 DR;
-	volatile u32 CRCPR;
-	volatile u32 RXCRCR;
-	volatile u32 TXCRCR;
-	volatile u32 I2SCFGR;
-	volatile u32 I2SPR;
+	volatile u32 CR1     ;
+	volatile u32 CR2     ;
+	volatile u32 SR      ;
+	volatile u32 DR      ;
+	volatile u32 CRCPR   ;
+	volatile u32 RXCRCR  ;
+	volatile u32 TXCRCR  ;
+	volatile u32 I2SCFGR ;
+	volatile u32 I2SPR   ;
 }SPI_MemMap_t;
 
-#define SPI1   ( ( volatile SPI_MemMap_t * ) ( SPI1_BASE_ADDRESS ) )
-#define SPI2   ( ( volatile SPI_MemMap_t * ) ( SPI2_BASE_ADDRESS ) )
+#define SPI_COUNT           2
+
+#define SPI1_BASE_ADDRESS   ( ( volatile SPI_MemMap_t * ) ( 0x40013000 ) )
+#define SPI2_BASE_ADDRESS   ( ( volatile SPI_MemMap_t * ) ( 0x40003800 ) )
 
 
 typedef enum
@@ -74,19 +74,17 @@ typedef enum
 
 typedef enum
 {
-	SPI_NoError,
-	SPI_PointerError,
-	SPI_ClkPhaseError,
-	SPI_ClkPolarityError,
-	SPI_ClkRateError,
-	SPI_DataOrderError,
+	SPI_NoError          ,
+	SPI_PointerError     ,
+	SPI_ClkPhaseError    ,
+	SPI_ClkPolarityError ,
+	SPI_ClkRateError     ,
+	SPI_DataOrderError   ,
+	SPI_ModeError        ,
 }SPI_Errors_t;
 
 
-#define SPI_DEFAULT     0
-
-#define SPI_DISABLE     0
-#define SPI_ENABLE_SM   3
+#define SPI_SW_SLAVE_SELECT  3
 
 
 #endif /* _SPI_PRIVATE_H_ */

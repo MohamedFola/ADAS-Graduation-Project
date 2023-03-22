@@ -11,7 +11,7 @@
 /******************************/
 /* write the APB clock in MHz */
 /******************************/
-#define I2C_APB_CLOCK        36
+#define I2C_APB_CLOCK        8
 
 
 #endif /* _I2C_CONFIG_H_ */

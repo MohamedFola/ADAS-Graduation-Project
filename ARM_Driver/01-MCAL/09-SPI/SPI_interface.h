@@ -34,127 +34,86 @@
 #ifndef _SPI_INTERFACE_H_
 #define _SPI_INTERFACE_H_
 
+#include "SPI_private.h"
+
+
 /* SPI used */
-#define SPI_1                           0
-#define SPI_2                           1
+typedef enum
+{
+	SPI1,
+	SPI2,
+}SPI_Number_t;
+
+
+typedef enum
+{
+	SPI_Slave  ,
+	SPI_Master ,
+}SPI_Mode_t;
 
 
 /* Clock Phase Options */
-#define SPI_CLKPH_LEADING_EDGE          0
-#define SPI_CLKPH_TRAILING_EDGE         1
+typedef enum
+{
+	SPI_ClkPhase_LeadingEdge  ,
+	SPI_ClkPhase_TrailingEdge ,
+}SPI_Phase_t;
 
 
 /* Clock Polarity Options */
-#define SPI_CLKPOL_IDLE_LOW             0
-#define SPI_CLKPOL_IDLE_HIGH            1
+typedef enum
+{
+	SPI_ClkPol_IdleLow  ,
+	SPI_ClkPol_IdleHigh ,
+}SPI_Polarity_t;
 
 
 /* Clock Rate Options */
-#define	SPI_CLOCK_RATE_DIV_2            0
-#define	SPI_CLOCK_RATE_DIV_4            1
-#define	SPI_CLOCK_RATE_DIV_8            2
-#define	SPI_CLOCK_RATE_DIV_16           3
-#define	SPI_CLOCK_RATE_DIV_32           4
-#define	SPI_CLOCK_RATE_DIV_64           5
-#define	SPI_CLOCK_RATE_DIV_128          6
-#define	SPI_CLOCK_RATE_DIV_256          7
+typedef enum
+{
+	SPI_ClkRateDiv2   ,
+	SPI_ClkRateDiv4   ,
+	SPI_ClkRateDiv8   ,
+	SPI_ClkRateDiv16  ,
+	SPI_ClkRateDiv32  ,
+	SPI_ClkRateDiv64  ,
+	SPI_ClkRateDiv128 ,
+	SPI_ClkRateDiv256 ,
+}SPI_CLkRate_t;
 
 
 /* Data Order Options */
-#define SPI_MSB_FIRST                   0
-#define SPI_LSB_FIRST                   1
-
-
-/****************************************************************************
- * Name        : SPI_u8MasterInit                                           *
- *                                                                          *
- * Return type :                                                            *
- * 		u8 --> Local_u8Error: a variable that stores the error type         *
- *                                                                          *
- * Arguments   :                                                            *
- * 		Copy_u8SPI                                                          *
- * 		Copy_u8DataOrder                                                    *
- * 		Copy_u8ClockPolatrity                                               *
- * 		Copy_u8ClockPhase                                                   *
- * 		Copy_u8ClockRate                                                    *
- * 	                                                                        *
- * Type        : Synchronous                                                *
- *                                                                          *
- * Description :                                                            *
- * 		Initiate the used SPI peripheral by Enabling the RCC and set the    *
- * 		clock, data order, clock phase and polarity and Enabling the        *
- * 		used SPI peripheral                                                 *
- ****************************************************************************/
-u8 SPI_u8MasterInit(
-		u8 Copy_u8SPI,
-		u8 Copy_u8DataOrder,
-		u8 Copy_u8ClockPolatrity,
-		u8 Copy_u8ClockPhase,
-		u8 Copy_u8ClockRate);
-
-
-/****************************************************************************
- * Name        : SPI_u8SlaveInit                                            *
- *                                                                          *
- * Return type :                                                            *
- * 		u8 --> Local_u8Error: a variable that stores the error type         *
- *                                                                          *
- * Arguments   :                                                            *
- * 		Copy_u8SPI                                                          *
- * 		Copy_u8DataOrder                                                    *
- * 		Copy_u8ClockPolatrity                                               *
- * 		Copy_u8ClockPhase                                                   *
- * 	                                                                        *
- * Type        : Synchronous                                                *
- *                                                                          *
- * Description :                                                            *
- * 		Initiate the used SPI peripheral by Enabling the RCC and set the    *
- * 		clock, data order, clock phase and polarity and Enabling the        *
- * 		used SPI peripheral                                                 *
- ****************************************************************************/
-u8 SPI_u8SlaveInit(
-		u8 Copy_u8SPI,
-		u8 Copy_u8DataOrder,
-		u8 Copy_u8ClockPolatrity,
-		u8 Copy_u8ClockPhase);
+typedef enum
+{
+	SPI_MSBFirst,
+	SPI_LSBFirst,
+}SPI_DataOrder_t;
 
 
 
-/****************************************************************************
- * Name        : SPI_u8SynchTransceive                                      *
- *                                                                          *
- * Return type :                                                            *
- * 		u8 --> Received Data                                                *
- *                                                                          *
- * Arguments   :                                                            *
- * 		Copy_u8SPI                                                          *
- * 		Copy_u8Data                                                         *
- * 		                                                                    *
- * Type        : Synchronous                                                *
- *                                                                          *
- * Description :                                                            *
- * 		Sends and Receives one data Byte                                    *
- ****************************************************************************/
-u8 SPI_u8SynchTransceive( u8 Copy_u8SPI, u8 Copy_u8Data );
+
+typedef struct
+{
+	SPI_Number_t    SPI_Number    ;
+	SPI_Mode_t      SPI_Mode      ;
+	SPI_Phase_t     SPI_Phase     ;
+	SPI_Polarity_t  SPI_Polartity ;
+	SPI_CLkRate_t   SPI_ClkRate   ;
+	SPI_DataOrder_t SPI_DataOrder ;
+}SPI_t;
 
 
 
-/****************************************************************************
- * Name        : SPI_u8SynchTransceiveString                                *
- *                                                                          *
- * Return type :                                                            *
- * 		u8* --> Received String                                             *
- *                                                                          *
- * Arguments   :                                                            *
- * 		Copy_u8SPI                                                          *
- * 		Copy_pu8String                                                      *
- * 		                                                                    *
- * Type        : Synchronous                                                *
- *                                                                          *
- * Description :                                                            *
- * 		Sends and Receives whole String                                     *
- ****************************************************************************/
-u8* SPI_u8SynchTransceiveString( u8 Copy_u8SPI, u8* Copy_pu8String );
+SPI_Errors_t SPI_Init ( SPI_t* Ptr_SPI );
+
+SPI_Errors_t SPI_u8SynchTransceive(
+		SPI_Number_t Copy_SPI,
+		u8* Ptr_u8DataSend,
+		u8* Ptr_u8DataReceived,
+		u32 Copy_u32Size
+		);
+
+
 
 
 #endif /* _SPI_INTERFACE_H_ */
