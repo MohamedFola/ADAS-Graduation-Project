@@ -11,10 +11,11 @@
 
 typedef struct
 {
-	u8 R_EN_PIN  : 4;
-	u8 L_EN_PIN  : 4;
-	u8 R_EN_PORT : 2;
-	u8 L_EN_PORT : 2;
+	u8 R_DIR_PIN  :  4;
+	u8 L_DIR_PIN  :  4;
+	u8 R_PWM_PIN  :  4;
+	u8 L_PWM_PIN  :  4;
+	u8 MOTOR_PORT: 2;
 }MOTOR_t;
 
 
@@ -26,11 +27,11 @@ typedef struct
 
 
 
-void MOTOR_voidEnable ( MOTOR_t* Copy_Pins );
+
 
 void MOTOR_voidStop ( MOTOR_t* Copy_Pins );
 
-u8 MOTOR_voidMove (u8 Copy_u8MotorNumber, u8 Copy_u8Dir, u16 Copy_u16Speed );
+u8 MOTOR_voidMove ( MOTOR_t* Copy_Pins , u8 Copy_u8Direction , u16 Copy_u16Speed_L, u16 Copy_u16Speed_R  );
 
 
 #endif /* _MOTOR_INTERFACE_H_ */

@@ -8,47 +8,61 @@
 #include "../../00-LIB/STD_TYPES.h"
 #include "../../00-LIB/BIT_MATH.h"
 
+
+
+#include "../../01-MCAL/02-DIO/DIO_interface.h"
+#include "../../01-MCAL/08-TIM/TIM_interface.h"
+#include "../../01-MCAL/08-TIM/TIM_private.h"
+#include "../../01-MCAL/10-PWM/PWM_interface.h"
+
 #include "MOTOR_config.h"
 #include "MOTOR_interface.h"
 #include "MOTOR_private.h"
-
-#include "../../01-MCAL/02-DIO/DIO_interface.h"
-#include "../../01-MCAL/10-PWM/PWM_interface.h"
-
-
-void MOTOR_voidEnable (  MOTOR_t* Copy_Pins )
-{
-	// enable the two drivers
-	MDIO_u8WriteChannel( Copy_Pins->L_EN_PORT, Copy_Pins->L_EN_PIN, MDIO_PIN_HIGH );
-	MDIO_u8WriteChannel( Copy_Pins->R_EN_PORT, Copy_Pins->R_EN_PIN, MDIO_PIN_HIGH );
-}
-
-
 void MOTOR_voidStop ( MOTOR_t* Copy_Pins )
 {
-	// disable the two drivers
-	MDIO_u8WriteChannel( Copy_Pins->L_EN_PORT, Copy_Pins->L_EN_PIN, MDIO_PIN_LOW );
-	MDIO_u8WriteChannel( Copy_Pins->R_EN_PORT, Copy_Pins->R_EN_PIN, MDIO_PIN_LOW );
+	MDIO_u8WriteChannel(Copy_Pins->MOTOR_PORT, Copy_Pins->L_PWM_PIN, MDIO_PIN_LOW);
+	MDIO_u8WriteChannel(Copy_Pins->MOTOR_PORT, Copy_Pins->R_PWM_PIN, MDIO_PIN_LOW);
 }
 
 
-u8 MOTOR_voidMove ( u8 Copy_u8MotorNumber, u8 Copy_u8Dir, u16 Copy_u16Speed )
+u8 MOTOR_voidMove ( MOTOR_t* Copy_Pins , u8 Copy_u8Direction , u16 Copy_u16Speed_L, u16 Copy_u16Speed_R  )
 {
-	u8 Local_u8ErrorStaus=OK;
+	u8 Local_u8ErrorStaus = OK;
+	static u8 Local_PerDir;
 
-	switch( Copy_u8MotorNumber )
+	if ( Copy_u16Speed_L > 100 )
 	{
-	case MOTOR1:
-		if      ( Copy_u8Dir == MOTOR_FORWARD  ) { MDIO_u8WriteChannel(MDIO_PORTA, MDIO_PIN1, MDIO_PIN_HIGH); MDIO_u8WriteChannel(MDIO_PORTA, MDIO_PIN1, MDIO_PIN_LOW); }
-		else if ( Copy_u8Dir == MOTOR_BACKWARD ) { MDIO_u8WriteChannel(MDIO_PORTA, MDIO_PIN1, MDIO_PIN_HIGH); MDIO_u8WriteChannel(MDIO_PORTA, MDIO_PIN0, MDIO_PIN_LOW); }
-		break;
+		Copy_u16Speed_L = 100;
+	}
 
-	case MOTOR2:
-		if      ( Copy_u8Dir == MOTOR_FORWARD  ) MPWM2_SetDutyCycle( CH3, Copy_u16Speed);
-		else if ( Copy_u8Dir == MOTOR_BACKWARD ) MPWM2_SetDutyCycle( CH4, Copy_u16Speed);
-		break;
+	if ( Copy_u16Speed_R > 100 )
+	{
+		Copy_u16Speed_R = 100;
+	}
 
-	default: Local_u8ErrorStaus = NOK; break;
+	if ( Copy_u8Direction != Local_PerDir || Copy_u16Speed_L  )
+		switch(Copy_u8Direction)
+		{
+		case MOTOR_FORWARD:
+			MDIO_u8WriteChannel(Copy_Pins->MOTOR_PORT, Copy_Pins->L_DIR_PIN, MDIO_PIN_HIGH);
+			MDIO_u8WriteChannel(Copy_Pins->MOTOR_PORT, Copy_Pins->R_DIR_PIN, MDIO_PIN_HIGH);
+
+			break;
+		case MOTOR_BACKWARD:
+			MDIO_u8WriteChannel(Copy_Pins->MOTOR_PORT, Copy_Pins->L_DIR_PIN, MDIO_PIN_LOW);
+			MDIO_u8WriteChannel(Copy_Pins->MOTOR_PORT, Copy_Pins->R_DIR_PIN, MDIO_PIN_LOW);
+
+			break;
+		default:
+			MDIO_u8WriteChannel(Copy_Pins->MOTOR_PORT, Copy_Pins->L_PWM_PIN, MDIO_PIN_LOW);
+			MDIO_u8WriteChannel(Copy_Pins->MOTOR_PORT, Copy_Pins->R_PWM_PIN, MDIO_PIN_LOW);
+		}
+
+
+	if ( TIM2->CCR2 != Copy_u16Speed_L || TIM2->CCR4 != Copy_u16Speed_R)
+	{
+		MPWM2_SetDutyCycle( CH2, Copy_u16Speed_L);
+		MPWM2_SetDutyCycle( CH4, Copy_u16Speed_R);
 	}
 
 
