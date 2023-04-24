@@ -704,108 +704,6 @@ type 0204, grid 7.5 mm</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="Phoenix Contact - 1766563">
-<description>Upverter Parts Library
-
-Created by Upverter.com</description>
-<packages>
-<package name="PHOENIX_CONTACT_1766563_0">
-<description>Pluggable Terminal Blocks 2 Pos 7.62mm pitch Through Hole Header</description>
-<wire x1="-6.795" y1="-4.375" x2="-6.795" y2="4.375" width="0.15" layer="51"/>
-<wire x1="-6.795" y1="4.375" x2="6.795" y2="4.375" width="0.15" layer="51"/>
-<wire x1="6.795" y1="4.375" x2="6.795" y2="-4.375" width="0.15" layer="51"/>
-<wire x1="6.795" y1="-4.375" x2="-6.795" y2="-4.375" width="0.15" layer="51"/>
-<wire x1="-6.895" y1="-4.475" x2="-6.895" y2="4.475" width="0.1" layer="39"/>
-<wire x1="-6.895" y1="4.475" x2="6.895" y2="4.475" width="0.1" layer="39"/>
-<wire x1="6.895" y1="4.475" x2="6.895" y2="-4.475" width="0.1" layer="39"/>
-<wire x1="6.895" y1="-4.475" x2="-6.895" y2="-4.475" width="0.1" layer="39"/>
-<wire x1="-6.795" y1="4.375" x2="6.795" y2="4.375" width="0.15" layer="21"/>
-<wire x1="6.795" y1="-4.375" x2="6.795" y2="4.375" width="0.15" layer="21"/>
-<wire x1="-6.795" y1="-4.375" x2="6.795" y2="-4.375" width="0.15" layer="21"/>
-<wire x1="-6.795" y1="-4.375" x2="-6.795" y2="4.375" width="0.15" layer="21"/>
-<text x="-6.795" y="4.675" size="1" layer="25">&gt;NAME</text>
-<circle x="-7.3" y="-0.5" radius="0.25" width="0" layer="21"/>
-<pad name="1" x="-3.81" y="-0.5" drill="1.4" diameter="2.15" shape="square"/>
-<pad name="2" x="3.81" y="-0.5" drill="1.4" diameter="2.15"/>
-</package>
-</packages>
-<symbols>
-<symbol name="PHOENIX_CONTACT_1766563_0_0">
-<description>Pluggable Terminal Blocks 2 Pos 7.62mm pitch Through Hole Header</description>
-<wire x1="2.54" y1="-20.32" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="2.54" y1="-5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="-5.08" x2="7.62" y2="-20.32" width="0.254" layer="94"/>
-<wire x1="7.62" y1="-20.32" x2="2.54" y2="-20.32" width="0.254" layer="94"/>
-<wire x1="3.81" y1="-10.668" x2="3.81" y2="-9.652" width="1.016" layer="94"/>
-<wire x1="3.81" y1="-9.652" x2="5.588" y2="-9.652" width="1.016" layer="94"/>
-<wire x1="5.588" y1="-9.652" x2="5.588" y2="-10.668" width="1.016" layer="94"/>
-<wire x1="5.588" y1="-10.668" x2="3.81" y2="-10.668" width="1.016" layer="94"/>
-<wire x1="5.842" y1="-10.16" x2="7.62" y2="-10.16" width="0.508" layer="94"/>
-<wire x1="3.81" y1="-15.748" x2="3.81" y2="-14.732" width="1.016" layer="94"/>
-<wire x1="3.81" y1="-14.732" x2="5.588" y2="-14.732" width="1.016" layer="94"/>
-<wire x1="5.588" y1="-14.732" x2="5.588" y2="-15.748" width="1.016" layer="94"/>
-<wire x1="5.588" y1="-15.748" x2="3.81" y2="-15.748" width="1.016" layer="94"/>
-<wire x1="5.842" y1="-15.24" x2="7.62" y2="-15.24" width="0.508" layer="94"/>
-<wire x1="7.62" y1="-10.16" x2="7.62" y2="-10.16" width="0.15" layer="94"/>
-<wire x1="7.62" y1="-15.24" x2="7.62" y2="-15.24" width="0.15" layer="94"/>
-<text x="2.54" y="-2.54" size="2.54" layer="95" align="top-left">&gt;NAME</text>
-<text x="2.54" y="-25.4" size="2.54" layer="95" align="top-left">1766563</text>
-<pin name="1" x="12.7" y="-10.16" visible="pad" length="middle" direction="pas" rot="R180"/>
-<pin name="2" x="12.7" y="-15.24" visible="pad" length="middle" direction="pas" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="PHOENIX_CONTACT_1766563" prefix="J">
-<description>Pluggable Terminal Blocks 2 Pos 7.62mm pitch Through Hole Header</description>
-<gates>
-<gate name="G$0" symbol="PHOENIX_CONTACT_1766563_0_0" x="0" y="0"/>
-</gates>
-<devices>
-<device name="PHOENIX_CONTACT_1766563_0_0" package="PHOENIX_CONTACT_1766563_0">
-<connects>
-<connect gate="G$0" pin="1" pad="1"/>
-<connect gate="G$0" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="AUTOMOTIVE" value="No"/>
-<attribute name="CENTROID_NOT_SPECIFIED" value="No"/>
-<attribute name="CONN_GENDER" value="Male"/>
-<attribute name="CONN_ORIENTATION" value="Straight"/>
-<attribute name="CONTACT_MATERIAL" value="Tin"/>
-<attribute name="CURRENT_RATING" value="12A"/>
-<attribute name="DATASHEET" value="https://www.phoenixcontact.com/pxc-oc-itemdetail-pdf-web/eshop?lineItemType=LineItem&amp;UID=1766563"/>
-<attribute name="DEVICE_CLASS_L1" value="Connectors"/>
-<attribute name="DEVICE_CLASS_L2" value="Headers and Wire Housings"/>
-<attribute name="DEVICE_CLASS_L3" value="unset"/>
-<attribute name="DIGIKEY_DESCRIPTION" value="CONN TERM BLOCK HDR 2POS VERT 7.62MM"/>
-<attribute name="DIGIKEY_PART_NUMBER" value="277-13956-ND"/>
-<attribute name="FOOTPRINT_URL" value="https://www.phoenixcontact.com/online/portal/us/pxc/product_detail_page/!ut/p/z1/3Vffc6IwEP5X7INvjVkCBLyZe8AftfaqtVVb4YUJIdrcCVhAbfvXX1B753hz-tBx5g4mA0l299vsJl9mwR6eYC9mKzljuUxiNldj16P-qDFqtweEanf3ZgO6LbPZvjUetOs-wY_Yw17OAuxqRW8ug5Slb9hdZiIuJhYyVCKLUpPqxTiZDprNb9gdIE1DQNR7AyDzucDulRAhyp_TZDl7rjwLFoq0giqd3nDUeKyQS7MKFYI6yLqkRM1_oD4dXaOjHBwPYWsPf3kcOGXvKnvLJx0NtGtD68GtZcE9uXIIaQ2cEWh4uElEOJ2zeLZkMxXoZiLJZJHl7SgVXMiVSHcyzn8c5ujP1KZJuOQFxEi85lvD3zuh_EVJ-OHrYBd2pi2RMznPurmIunsKJwLSSxZQB8oWEClbQGXjUKdsHLLLxiG7bByyy8ahu9IdubJdCnf0vwtIKSxTid3FK0cJR1KJw43mF4Xz9UPrBnsyiGprHtWgplRrO1B_q-svikifGtgdayKerVWF6R0tIh1tp3CkCB2K2B8P_cGkOR4ez3vrgeKnlRRrPI6TNFJV_HYXeJGJEGwQBliIhcREhkUEYlDnKIC6YQvDmBIw8TWc8mB-0sMJeOus8NZ54fvnTc6VcV74z67-5uhRvzWKf0r5_eXFc7DHkzgvCDwpiF2FtQiqEDGpujtGZVWYyyzfMEr1FzzwlU0seJ6kmb_4dUtUIeSmbTFqocA0ABmUUsQIGEgInQR0aml63caLKLL1oqHx5H0kgve9ZoO-E26b3--bq_32Dxr0kVfvok4zsHtt3ZxF_sEncy4ufgLJYhWE/p0/IZ7_2G101H41M0L770Q2FA22DPAT82=CZ6_TBTEEP261OQ5B0ID5CEL4R1HN2=LA0=EdownloadId!4187324=action!downloadFile==/#Z7_2G101H41M0L770Q2FA22DPAT82"/>
-<attribute name="FOOTPRINT_VARIANT_NAME_0" value="Recommended_Land_Pattern"/>
-<attribute name="HEIGHT" value="12.15mm"/>
-<attribute name="LEAD_FREE" value="Yes"/>
-<attribute name="MF" value="Phoenix Contact"/>
-<attribute name="MFG_PACKAGE_IDENT" value="1766563"/>
-<attribute name="MFG_PACKAGE_IDENT_DATE" value="0"/>
-<attribute name="MFG_PACKAGE_IDENT_REV" value="0"/>
-<attribute name="MOUSER_DESCRIPTION" value="Pluggable Terminal Blocks 2 Pos 7.62mm pitch Through Hole Header"/>
-<attribute name="MOUSER_PART_NUMBER" value="651-1766563"/>
-<attribute name="MPN" value="1766563"/>
-<attribute name="NUMBER_OF_CONTACTS" value="2"/>
-<attribute name="NUMBER_OF_ROWS" value="1"/>
-<attribute name="PACKAGE" value="HDR2"/>
-<attribute name="PITCH" value="7.62mm"/>
-<attribute name="PREFIX" value="J"/>
-<attribute name="ROHS" value="Yes"/>
-<attribute name="VERIFICATION_VERSION" value="0.0.0.2"/>
-<attribute name="VOLTAGE_RATING" value="630V"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="fuse" urn="urn:adsk.eagle:library:233">
 <description>&lt;b&gt;Fuses and Fuse Holders&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
@@ -2625,6 +2523,73 @@ Wickmann</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="HB9500-9.5-2P">
+<description>&lt;Barrier Block 2 2 0.374"(9.50mm) 12-22 AWG P=9.5mm Barrier Terminal Blocks&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="SHDR2W140P0X950_1X2_2055X1800X">
+<description>&lt;b&gt;HB9500-9.5-2P&lt;/b&gt;&lt;br&gt;
+</description>
+<pad name="1" x="0" y="0" drill="2.2" diameter="3.3" shape="square"/>
+<pad name="2" x="9.5" y="0" drill="2.2" diameter="3.3"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-5.775" y1="-4.6" x2="-5.775" y2="13.9" width="0.05" layer="51"/>
+<wire x1="-5.775" y1="13.9" x2="15.275" y2="13.9" width="0.05" layer="51"/>
+<wire x1="15.275" y1="13.9" x2="15.275" y2="-4.6" width="0.05" layer="51"/>
+<wire x1="15.275" y1="-4.6" x2="-5.775" y2="-4.6" width="0.05" layer="51"/>
+<wire x1="-5.525" y1="-4.35" x2="-5.525" y2="13.65" width="0.1" layer="51"/>
+<wire x1="-5.525" y1="13.65" x2="15.025" y2="13.65" width="0.1" layer="51"/>
+<wire x1="15.025" y1="13.65" x2="15.025" y2="-4.35" width="0.1" layer="51"/>
+<wire x1="15.025" y1="-4.35" x2="-5.525" y2="-4.35" width="0.1" layer="51"/>
+<wire x1="0" y1="-4.35" x2="15.025" y2="-4.35" width="0.2" layer="21"/>
+<wire x1="15.025" y1="-4.35" x2="15.025" y2="13.65" width="0.2" layer="21"/>
+<wire x1="15.025" y1="13.65" x2="-5.525" y2="13.65" width="0.2" layer="21"/>
+<wire x1="-5.525" y1="13.65" x2="-5.525" y2="0" width="0.2" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="HB9500-9.5-2P">
+<wire x1="5.08" y1="2.54" x2="15.24" y2="2.54" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-5.08" x2="15.24" y2="2.54" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<text x="16.51" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="16.51" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="1" x="0" y="0" length="middle"/>
+<pin name="2" x="0" y="-2.54" length="middle"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="HB9500-9.5-2P" prefix="J">
+<description>&lt;b&gt;Barrier Block 2 2 0.374"(9.50mm) 12-22 AWG P=9.5mm Barrier Terminal Blocks&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Kangnex-Elec-Ningbo-Kangnex-Elec-HB9500-2P-black_C60785.pdf"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="HB9500-9.5-2P" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SHDR2W140P0X950_1X2_2055X1800X">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="ARROW_PART_NUMBER" value="" constant="no"/>
+<attribute name="ARROW_PRICE-STOCK" value="" constant="no"/>
+<attribute name="DESCRIPTION" value="Barrier Block 2 2 0.374&quot;(9.50mm) 12-22 AWG P=9.5mm Barrier Terminal Blocks" constant="no"/>
+<attribute name="HEIGHT" value="14.4mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Ningbo Kangnex" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="HB9500-9.5-2P" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2643,7 +2608,6 @@ Wickmann</description>
 <part name="GND3" library="ALL" deviceset="PINHD-2_DATA" device="" package3d_urn="urn:adsk.eagle:package:15814197/4"/>
 <part name="5V_DRIVER" library="ALL" deviceset="CON_PTR_2" device="" package3d_urn="urn:adsk.eagle:package:15814043/4"/>
 <part name="5V_DRIVER1" library="ALL" deviceset="CON_PTR_2" device="" package3d_urn="urn:adsk.eagle:package:15814043/4"/>
-<part name="J1" library="Phoenix Contact - 1766563" deviceset="PHOENIX_CONTACT_1766563" device="PHOENIX_CONTACT_1766563_0_0"/>
 <part name="12V_B" library="ALL" deviceset="PINHD-1X1" device="" package3d_urn="urn:adsk.eagle:package:22485/2"/>
 <part name="GND_B" library="ALL" deviceset="PINHD-1X1" device="" package3d_urn="urn:adsk.eagle:package:22485/2"/>
 <part name="5V_B" library="ALL" deviceset="PINHD-1X1" device="" package3d_urn="urn:adsk.eagle:package:22485/2"/>
@@ -2651,11 +2615,12 @@ Wickmann</description>
 <part name="FUSE_ESP" library="fuse" library_urn="urn:adsk.eagle:library:233" deviceset="FUSE" device="BLANK_5X20MM" package3d_urn="urn:adsk.eagle:package:14079/1"/>
 <part name="FUSE_ESP1" library="fuse" library_urn="urn:adsk.eagle:library:233" deviceset="FUSE" device="BLANK_5X20MM" package3d_urn="urn:adsk.eagle:package:14079/1"/>
 <part name="FUSE_ESP2" library="fuse" library_urn="urn:adsk.eagle:library:233" deviceset="FUSE" device="BLANK_5X20MM" package3d_urn="urn:adsk.eagle:package:14079/1"/>
-<part name="J2" library="Phoenix Contact - 1766563" deviceset="PHOENIX_CONTACT_1766563" device="PHOENIX_CONTACT_1766563_0_0"/>
 <part name="5V_SPARE" library="ALL" deviceset="PINHD-1X4" device="" package3d_urn="urn:adsk.eagle:package:22407/2"/>
 <part name="GND" library="ALL" deviceset="PINHD-1X4" device="" package3d_urn="urn:adsk.eagle:package:22407/2"/>
 <part name="U$1" library="ALL" deviceset="LED5MM" device="" package3d_urn="urn:adsk.eagle:package:15814139/2"/>
 <part name="U$2" library="ALL" deviceset="RES-7" device="" package3d_urn="urn:adsk.eagle:package:15814110/3"/>
+<part name="SUPPLY" library="HB9500-9.5-2P" deviceset="HB9500-9.5-2P" device=""/>
+<part name="SWITCH" library="HB9500-9.5-2P" deviceset="HB9500-9.5-2P" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2698,9 +2663,6 @@ Wickmann</description>
 <instance part="5V_DRIVER1" gate="G$2" x="68.58" y="38.1" smashed="yes">
 <attribute name="NAME" x="67.31" y="38.989" size="1.778" layer="95" rot="R180"/>
 </instance>
-<instance part="J1" gate="G$0" x="96.52" y="71.12" smashed="yes">
-<attribute name="NAME" x="99.06" y="68.58" size="2.54" layer="95" align="top-left"/>
-</instance>
 <instance part="12V_B" gate="G$1" x="58.42" y="22.86" smashed="yes">
 <attribute name="NAME" x="52.07" y="26.035" size="1.778" layer="95"/>
 <attribute name="VALUE" x="52.07" y="17.78" size="1.778" layer="96"/>
@@ -2729,9 +2691,6 @@ Wickmann</description>
 <attribute name="NAME" x="31.75" y="77.343" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="31.75" y="81.661" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="J2" gate="G$0" x="134.62" y="71.12" smashed="yes">
-<attribute name="NAME" x="137.16" y="68.58" size="2.54" layer="95" align="top-left"/>
-</instance>
 <instance part="5V_SPARE" gate="A" x="-40.64" y="55.88" smashed="yes">
 <attribute name="NAME" x="-46.99" y="64.135" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-46.99" y="48.26" size="1.778" layer="96"/>
@@ -2747,6 +2706,14 @@ Wickmann</description>
 <instance part="U$2" gate="G$1" x="96.52" y="88.9" smashed="yes" rot="R180">
 <attribute name="NAME" x="100.33" y="87.4014" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="100.33" y="92.202" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="SUPPLY" gate="G$1" x="104.14" y="33.02" smashed="yes">
+<attribute name="NAME" x="120.65" y="40.64" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="120.65" y="38.1" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="SWITCH" gate="G$1" x="137.16" y="30.48" smashed="yes">
+<attribute name="NAME" x="153.67" y="38.1" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="153.67" y="35.56" size="1.778" layer="96" align="center-left"/>
 </instance>
 </instances>
 <busses>
@@ -2836,11 +2803,6 @@ Wickmann</description>
 <label x="78.74" y="38.1" size="1.778" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="J1" gate="G$0" pin="2"/>
-<wire x1="109.22" y1="55.88" x2="114.3" y2="55.88" width="0.1524" layer="91"/>
-<label x="114.3" y="55.88" size="1.778" layer="95" xref="yes"/>
-</segment>
-<segment>
 <pinref part="GND_B" gate="G$1" pin="1"/>
 <wire x1="55.88" y1="12.7" x2="60.96" y2="12.7" width="0.1524" layer="91"/>
 <label x="60.96" y="12.7" size="1.778" layer="95" xref="yes"/>
@@ -2875,6 +2837,11 @@ Wickmann</description>
 <wire x1="121.92" y1="88.9" x2="127" y2="88.9" width="0.1524" layer="91"/>
 <label x="127" y="88.9" size="1.778" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="SUPPLY" gate="G$1" pin="2"/>
+<wire x1="104.14" y1="30.48" x2="99.06" y2="30.48" width="0.1524" layer="91"/>
+<label x="99.06" y="30.48" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="12V" class="0">
 <segment>
@@ -2893,9 +2860,14 @@ Wickmann</description>
 <label x="78.74" y="43.18" size="1.778" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$0" pin="2"/>
-<wire x1="147.32" y1="55.88" x2="152.4" y2="55.88" width="0.1524" layer="91"/>
-<label x="152.4" y="55.88" size="1.778" layer="95" xref="yes"/>
+<pinref part="U$2" gate="G$1" pin="2"/>
+<wire x1="91.44" y1="88.9" x2="86.36" y2="88.9" width="0.1524" layer="91"/>
+<label x="86.36" y="88.9" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="SWITCH" gate="G$1" pin="2"/>
+<wire x1="137.16" y1="27.94" x2="132.08" y2="27.94" width="0.1524" layer="91"/>
+<label x="132.08" y="27.94" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="MOT" class="0">
@@ -2951,19 +2923,14 @@ Wickmann</description>
 </net>
 <net name="12V_IN" class="0">
 <segment>
-<pinref part="J1" gate="G$0" pin="1"/>
-<wire x1="109.22" y1="60.96" x2="114.3" y2="60.96" width="0.1524" layer="91"/>
-<label x="114.3" y="60.96" size="1.778" layer="95" xref="yes"/>
+<pinref part="SUPPLY" gate="G$1" pin="1"/>
+<wire x1="104.14" y1="33.02" x2="99.06" y2="33.02" width="0.1524" layer="91"/>
+<label x="99.06" y="33.02" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$0" pin="1"/>
-<wire x1="147.32" y1="60.96" x2="152.4" y2="60.96" width="0.1524" layer="91"/>
-<label x="152.4" y="60.96" size="1.778" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="U$2" gate="G$1" pin="2"/>
-<wire x1="91.44" y1="88.9" x2="86.36" y2="88.9" width="0.1524" layer="91"/>
-<label x="86.36" y="88.9" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="SWITCH" gate="G$1" pin="1"/>
+<wire x1="137.16" y1="30.48" x2="132.08" y2="30.48" width="0.1524" layer="91"/>
+<label x="132.08" y="30.48" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$1" class="0">

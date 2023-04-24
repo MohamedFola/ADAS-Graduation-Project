@@ -999,7 +999,7 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Kangnex-Elec-Ningbo
 <part name="GND1" library="ALL" deviceset="PINHD-2_DATA" device="" package3d_urn="urn:adsk.eagle:package:15814197/4"/>
 <part name="GND2" library="ALL" deviceset="PINHD-2_DATA" device="" package3d_urn="urn:adsk.eagle:package:15814197/4"/>
 <part name="GND3" library="ALL" deviceset="PINHD-2_DATA" device="" package3d_urn="urn:adsk.eagle:package:15814197/4"/>
-<part name="5V_DRIVER1" library="ALL" deviceset="CON_PTR_2" device="" package3d_urn="urn:adsk.eagle:package:15814043/4"/>
+<part name="CYTRON" library="ALL" deviceset="CON_PTR_2" device="" package3d_urn="urn:adsk.eagle:package:15814043/4"/>
 <part name="FUSE_ESP" library="ALL" deviceset="FUSE_HOLDER" device="" package3d_urn="urn:adsk.eagle:package:15814046/2"/>
 <part name="FUSE_ESP1" library="ALL" deviceset="FUSE_HOLDER" device="" package3d_urn="urn:adsk.eagle:package:15814046/2"/>
 <part name="FUSE_ESP2" library="ALL" deviceset="FUSE_HOLDER" device="" package3d_urn="urn:adsk.eagle:package:15814046/2"/>
@@ -1009,9 +1009,9 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Kangnex-Elec-Ningbo
 <part name="U$2" library="ALL" deviceset="RES-7" device="" package3d_urn="urn:adsk.eagle:package:15814110/3"/>
 <part name="SUPPLY" library="HB9500-9.5-2P" deviceset="HB9500-9.5-2P" device=""/>
 <part name="U$3" library="ALL" deviceset="DC-DC-STEP-DOWN-LM2596" device="" package3d_urn="urn:adsk.eagle:package:15814122/2"/>
-<part name="S1" library="ALL" deviceset="DS01" device="" package3d_urn="urn:adsk.eagle:package:15814119/1"/>
-<part name="S2" library="ALL" deviceset="DS01" device="" package3d_urn="urn:adsk.eagle:package:15814119/1"/>
-<part name="S3" library="ALL" deviceset="DS01" device="" package3d_urn="urn:adsk.eagle:package:15814119/1"/>
+<part name="MOTOR" library="ALL" deviceset="DS01" device="" package3d_urn="urn:adsk.eagle:package:15814119/1"/>
+<part name="SENSOR" library="ALL" deviceset="DS01" device="" package3d_urn="urn:adsk.eagle:package:15814119/1"/>
+<part name="ALGO" library="ALL" deviceset="DS01" device="" package3d_urn="urn:adsk.eagle:package:15814119/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -1042,10 +1042,10 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Kangnex-Elec-Ningbo
 <attribute name="NAME" x="36.83" y="43.815" size="1.778" layer="95"/>
 <attribute name="VALUE" x="36.83" y="33.02" size="1.778" layer="96"/>
 </instance>
-<instance part="5V_DRIVER1" gate="G$1" x="68.58" y="43.18" smashed="yes">
+<instance part="CYTRON" gate="G$1" x="68.58" y="43.18" smashed="yes">
 <attribute name="NAME" x="67.31" y="44.069" size="1.778" layer="95" rot="R180"/>
 </instance>
-<instance part="5V_DRIVER1" gate="G$2" x="68.58" y="38.1" smashed="yes">
+<instance part="CYTRON" gate="G$2" x="68.58" y="38.1" smashed="yes">
 <attribute name="NAME" x="67.31" y="38.989" size="1.778" layer="95" rot="R180"/>
 </instance>
 <instance part="FUSE_ESP" gate="G$1" x="27.94" y="99.06" smashed="yes" rot="R180">
@@ -1084,15 +1084,15 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Kangnex-Elec-Ningbo
 <attribute name="NAME" x="76.2" y="101.6" size="1.778" layer="95"/>
 <attribute name="VALUE" x="76.2" y="99.06" size="1.778" layer="96"/>
 </instance>
-<instance part="S1" gate="G$1" x="10.16" y="99.06" smashed="yes" rot="R270">
+<instance part="MOTOR" gate="G$1" x="10.16" y="99.06" smashed="yes" rot="R270">
 <attribute name="NAME" x="5.08" y="101.6" size="1.778" layer="95"/>
 <attribute name="VALUE" x="5.08" y="94.615" size="1.778" layer="96"/>
 </instance>
-<instance part="S2" gate="G$1" x="10.16" y="88.9" smashed="yes" rot="R270">
+<instance part="SENSOR" gate="G$1" x="10.16" y="88.9" smashed="yes" rot="R270">
 <attribute name="NAME" x="5.08" y="91.44" size="1.778" layer="95"/>
 <attribute name="VALUE" x="5.08" y="84.455" size="1.778" layer="96"/>
 </instance>
-<instance part="S3" gate="G$1" x="10.16" y="78.74" smashed="yes" rot="R270">
+<instance part="ALGO" gate="G$1" x="10.16" y="78.74" smashed="yes" rot="R270">
 <attribute name="NAME" x="5.08" y="81.28" size="1.778" layer="95"/>
 <attribute name="VALUE" x="5.08" y="74.295" size="1.778" layer="96"/>
 </instance>
@@ -1127,17 +1127,17 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Kangnex-Elec-Ningbo
 <label x="111.76" y="91.44" size="1.778" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="S1" gate="G$1" pin="1"/>
+<pinref part="MOTOR" gate="G$1" pin="1"/>
 <wire x1="2.54" y1="99.06" x2="-5.08" y2="99.06" width="0.1524" layer="91"/>
 <label x="-2.54" y="99.06" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="S2" gate="G$1" pin="1"/>
+<pinref part="SENSOR" gate="G$1" pin="1"/>
 <wire x1="2.54" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <label x="-2.54" y="88.9" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="S3" gate="G$1" pin="1"/>
+<pinref part="ALGO" gate="G$1" pin="1"/>
 <wire x1="2.54" y1="78.74" x2="-5.08" y2="78.74" width="0.1524" layer="91"/>
 <label x="-2.54" y="78.74" size="1.778" layer="95"/>
 </segment>
@@ -1174,7 +1174,7 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Kangnex-Elec-Ningbo
 <label x="35.56" y="38.1" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="5V_DRIVER1" gate="G$2" pin="KL"/>
+<pinref part="CYTRON" gate="G$2" pin="KL"/>
 <wire x1="73.66" y1="38.1" x2="78.74" y2="38.1" width="0.1524" layer="91"/>
 <label x="78.74" y="38.1" size="1.778" layer="95" xref="yes"/>
 </segment>
@@ -1221,7 +1221,7 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Kangnex-Elec-Ningbo
 </net>
 <net name="12V" class="0">
 <segment>
-<pinref part="5V_DRIVER1" gate="G$1" pin="KL"/>
+<pinref part="CYTRON" gate="G$1" pin="KL"/>
 <wire x1="73.66" y1="43.18" x2="78.74" y2="43.18" width="0.1524" layer="91"/>
 <label x="78.74" y="43.18" size="1.778" layer="95" xref="yes"/>
 </segment>
@@ -1302,21 +1302,21 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Kangnex-Elec-Ningbo
 <net name="N$2" class="0">
 <segment>
 <pinref part="FUSE_ESP1" gate="G$1" pin="2"/>
-<pinref part="S2" gate="G$1" pin="2"/>
+<pinref part="SENSOR" gate="G$1" pin="2"/>
 <wire x1="17.78" y1="88.9" x2="22.86" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
 <pinref part="FUSE_ESP" gate="G$1" pin="2"/>
-<pinref part="S1" gate="G$1" pin="2"/>
+<pinref part="MOTOR" gate="G$1" pin="2"/>
 <wire x1="17.78" y1="99.06" x2="22.86" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="FUSE_ESP2" gate="G$1" pin="2"/>
-<pinref part="S3" gate="G$1" pin="2"/>
+<pinref part="ALGO" gate="G$1" pin="2"/>
 <wire x1="17.78" y1="78.74" x2="22.86" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
