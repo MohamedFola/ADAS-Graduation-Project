@@ -15,8 +15,8 @@
 void MSTK_voidClkSrcInit(void);
 u8 MSTK_voidClearCount(void);
 void MSTK_voidSetBusyWait(u32 Copy_u32Ticks);
-u8 MSTK_u8SetIntervalSingle(u32 Copy_u32Ticks);
-u8 MSTK_u8SetIntervalPeriodic(u32 Copy_u32Ticks);
+void MSTK_u8SetIntervalSingle(u32 Copy_u32Ticks);
+void MSTK_u8SetIntervalPeriodic(u32 Copy_u32Ticks);
 void MSTK_voidStopInterval(void);
 u32 MSTK_u32GetElapsedTime(void);
 u32 MSTK_u32GetRemainingTime(void);

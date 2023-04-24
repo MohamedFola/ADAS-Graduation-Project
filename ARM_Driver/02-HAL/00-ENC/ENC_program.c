@@ -5,11 +5,11 @@
 #include "../../00-LIB/STD_TYPES.h"
 #include "../../00-LIB/BIT_MATH.h"
 
-#include "NVIC_interface.h"
-#include "EXTI_interface.h"
-#include "STK_interface.h"
-#include "DIO_interface.h"
-#include "AFIO_interface.h"
+#include "../../01-MCAL/02-DIO/DIO_interface.h"
+#include "../../01-MCAL/03-STK/STK_interface.h"
+#include "../../01-MCAL/04-NVIC/NVIC_interface.h"
+#include "../../01-MCAL/05-EXTI/EXTI_interface.h"
+#include "../../01-MCAL/06-AFIO/AFIO_interface.h"
 
 #include "ENC_private.h"
 #include "ENC_interface.h"

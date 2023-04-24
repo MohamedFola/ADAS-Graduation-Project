@@ -39,7 +39,7 @@ void MSTK_voidSetBusyWait(u32 Copy_u32Ticks)
 	/*Busy wait until the count down flag is raised */
 	while(MSTK_voidClearCount()==0);
 }
-u8 MSTK_u8SetIntervalSingle(u32 Copy_u32Ticks)
+void MSTK_u8SetIntervalSingle(u32 Copy_u32Ticks)
 {
 	/*Clear Value register */
 	MSTK ->MSTK_VAL =0x00;
@@ -52,7 +52,8 @@ u8 MSTK_u8SetIntervalSingle(u32 Copy_u32Ticks)
 	MSTK_u8ModeOfinterval=MSTK_SINGLE_INTERVAL;
 
 }
-u8 MSTK_u8SetIntervalPeriodic(u32 Copy_u32Ticks)
+
+void MSTK_u8SetIntervalPeriodic(u32 Copy_u32Ticks)
 {
 	/*Clear Value register */
 	MSTK ->MSTK_VAL =0x00;
