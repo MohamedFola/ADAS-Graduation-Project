@@ -42,6 +42,7 @@ f32 PID_controller_calc(PID_control *pid, f32 setpoint ,f32 RT_measurment)
 	
 	pid -> output= propotional+ (pid -> Integrator) + (pid -> differentiator);
 	
+	/*clamping the output*/
 	if(pid->output >pid-> Max_Limit)
 	{
 		pid -> output =pid -> Max_Limit;
@@ -50,7 +51,6 @@ f32 PID_controller_calc(PID_control *pid, f32 setpoint ,f32 RT_measurment)
 	{
 		pid -> output = pid -> Min_Limit;
 	}
-	
 	
 	/*restoring the last error and measurement*/
 	pid -> prevError =error;
