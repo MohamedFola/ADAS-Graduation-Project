@@ -34,7 +34,7 @@
 #ifndef _SPI_INTERFACE_H_
 #define _SPI_INTERFACE_H_
 
-#include "SPI_private.h"
+#include "../../../Src/01-MCAL/09-SPI/SPI_private.h"
 
 
 /* SPI used */
@@ -94,12 +94,12 @@ typedef enum
 
 typedef struct
 {
-	SPI_Number_t    SPI_Number    ;
-	SPI_Mode_t      SPI_Mode      ;
+	SPI_Number_t    SPI_Number    ;  //
+	SPI_Mode_t      SPI_Mode      ; //
 	SPI_Phase_t     SPI_Phase     ;
-	SPI_Polarity_t  SPI_Polartity ;
-	SPI_CLkRate_t   SPI_ClkRate   ;
-	SPI_DataOrder_t SPI_DataOrder ;
+	SPI_Polarity_t  SPI_Polartity ; //
+	SPI_CLkRate_t   SPI_ClkRate   ; //
+	SPI_DataOrder_t SPI_DataOrder ; //
 }SPI_t;
 
 
@@ -113,7 +113,11 @@ SPI_Errors_t SPI_u8SynchTransceive(
 		u32 Copy_u32Size
 		);
 
+u8 SPI_u8SynchTransceiveByte(
+		SPI_Number_t Copy_SPI,
+		u8 Local_u8DataSend);
 
+void SPI_voidChipSelect(u8 ChipSelect);
 
 
 #endif /* _SPI_INTERFACE_H_ */

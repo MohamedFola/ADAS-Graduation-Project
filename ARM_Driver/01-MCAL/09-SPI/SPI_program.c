@@ -5,13 +5,12 @@
 /*             SWC     : SPI                                   */
 /***************************************************************/
 
-#include "../../00-LIB/STD_TYPES.h"
-#include "../../00-LIB/BIT_MATH.h"
-
-
-#include "SPI_private.h"
-#include "SPI_interface.h"
-#include "SPI_config.h"
+#include "../../../Src/00-LIB/BIT_MATH.h"
+#include "../../../Src/00-LIB/STD_TYPES.h"
+#include "../../../Src/01-MCAL/02-DIO/DIO_interface.h"
+#include "../../../Src/01-MCAL/09-SPI/SPI_config.h"
+#include "../../../Src/01-MCAL/09-SPI/SPI_interface.h"
+#include "../../../Src/01-MCAL/09-SPI/SPI_private.h"
 
 
 
@@ -164,4 +163,38 @@ SPI_Errors_t SPI_u8SynchTransceive( SPI_Number_t Copy_SPI, u8* Ptr_u8DataSend, u
 	/**************************/
 	return Local_Error;
 }
+u8 SPI_u8SynchTransceiveByte( SPI_Number_t Copy_SPI, u8 Local_u8DataSend)
+{
+			u8 Local_u8DataReceived=0;
+			/* put the data into the data register */
+			/***************************************/
+			SPI[ Copy_SPI ]->DR = Local_u8DataSend;
 
+
+			/*****************************************************/
+			/* wait until transmission and reception is complete */
+			/*****************************************************/
+			while ( !GET_BIT( SPI[ Copy_SPI ]->SR, SPI_SR_TXE ) );
+			while (  GET_BIT( SPI[ Copy_SPI ]->SR, SPI_SR_BSY ) );
+
+
+			/*****************************************/
+			/* put the received data to the variable */
+			/*****************************************/
+			Local_u8DataReceived = SPI[ Copy_SPI ]->DR;
+
+	return Local_u8DataReceived;
+}
+
+
+void SPI_voidChipSelect(u8 ChipSelect)
+{
+	if(ChipSelect==1)
+	{
+		MDIO_u8WriteChannel(MDIO_PORTA, MDIO_PIN0,MDIO_PIN_LOW);
+	}
+	else
+	{
+		MDIO_u8WriteChannel(MDIO_PORTA, MDIO_PIN0,MDIO_PIN_HIGH);
+	}
+}
