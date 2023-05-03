@@ -5,12 +5,13 @@
 /*             SWC     : SPI                                   */
 /***************************************************************/
 
-#include "../../../Src/00-LIB/BIT_MATH.h"
-#include "../../../Src/00-LIB/STD_TYPES.h"
-#include "../../../Src/01-MCAL/02-DIO/DIO_interface.h"
-#include "../../../Src/01-MCAL/09-SPI/SPI_config.h"
-#include "../../../Src/01-MCAL/09-SPI/SPI_interface.h"
-#include "../../../Src/01-MCAL/09-SPI/SPI_private.h"
+#include "../../00-LIB/STD_TYPES.h"
+#include "../../00-LIB/BIT_MATH.h"
+
+
+#include "SPI_private.h"
+#include "SPI_interface.h"
+#include "SPI_config.h"
 
 
 
@@ -26,6 +27,11 @@ SPI_Errors_t SPI_Init ( SPI_t* Ptr_SPI )
 	SPI_Errors_t Local_Error = SPI_NoError;
 
 	SPI_Number_t Local_SPINumber = Ptr_SPI->SPI_Number;
+	
+	/**********************/
+	/* clear CR2 register */
+	/**********************/
+	SPI[ Local_SPINumber ]->CR2 = 0;
 
 
 	if ( Local_SPINumber < SPI_COUNT )
@@ -33,27 +39,48 @@ SPI_Errors_t SPI_Init ( SPI_t* Ptr_SPI )
 		/*******************/
 		/* set clock phase */
 		/*******************/
-		if   ( Ptr_SPI->SPI_Phase <= SPI_ClkPhase_TrailingEdge ) SPI[ Local_SPINumber ]->CR1 |= ( Ptr_SPI->SPI_Phase << SPI_CR1_CPHA );
-		else                                                     Local_Error = SPI_ClkPhaseError;
+		if ( Ptr_SPI->SPI_Phase <= SPI_ClkPhase_TrailingEdge )
+		{
+			SPI[ Local_SPINumber ]->CR1 |= ( Ptr_SPI->SPI_Phase << SPI_CR1_CPHA );
+		}
+		else
+		{
+			Local_Error = SPI_ClkPhaseError;
+		}
 
 
 		/**********************/
 		/* set clock polarity */
 		/**********************/
-		if   ( Ptr_SPI->SPI_Polartity <= SPI_ClkPol_IdleHigh ) SPI[ Local_SPINumber ]->CR1 |= ( Ptr_SPI->SPI_Polartity << SPI_CR1_CPOL );
-		else                                                   Local_Error = SPI_ClkPolarityError;
+		if ( Ptr_SPI->SPI_Polartity <= SPI_ClkPol_IdleHigh )
+		{
+			SPI[ Local_SPINumber ]->CR1 |= ( Ptr_SPI->SPI_Polartity << SPI_CR1_CPOL );
+		}
+		else
+		{
+			Local_Error = SPI_ClkPolarityError;
+		}
 
 
 		/************/
 		/* set mode */
 		/************/
-		if      ( Ptr_SPI->SPI_Mode == SPI_Master ) SET_BIT( SPI[ Local_SPINumber ]->CR1, SPI_CR1_MSTR );
-		else if ( Ptr_SPI->SPI_Mode == SPI_Slave )  CLR_BIT( SPI[ Local_SPINumber ]->CR1, SPI_CR1_MSTR );
-		else                                        Local_Error = SPI_ModeError;
+		if ( Ptr_SPI->SPI_Mode == SPI_Master )
+		{
+			SET_BIT( SPI[ Local_SPINumber ]->CR1, SPI_CR1_MSTR );
+		}
+		else if ( Ptr_SPI->SPI_Mode == SPI_Slave )
+		{
+			CLR_BIT( SPI[ Local_SPINumber ]->CR1, SPI_CR1_MSTR );
+		}
+		else
+		{
+			Local_Error = SPI_ModeError;
+		}
 
 
 		/***************************/
-		/* set software management */
+		/* set hardware management */
 		/***************************/
 		SPI[ Local_SPINumber ]->CR1 |= ( SPI_SW_SLAVE_SELECT << SPI_CR1_SSI );
 
@@ -63,8 +90,20 @@ SPI_Errors_t SPI_Init ( SPI_t* Ptr_SPI )
 		/*********************/
 		if ( Ptr_SPI->SPI_Mode == SPI_Master )
 		{
-			if   ( Ptr_SPI->SPI_ClkRate <= SPI_ClkRateDiv256 ) SPI[ Local_SPINumber ]->CR1 |= ( Ptr_SPI->SPI_ClkRate << SPI_CR1_BR );
-			else                                               Local_Error = SPI_ClkRateError;
+			if ( Ptr_SPI->SPI_ClkRate <= SPI_ClkRateDiv256 )
+			{
+				SPI[ Local_SPINumber ]->CR1 &= ~( SPI_CLK_MASK << SPI_CR1_BR );
+				SPI[ Local_SPINumber ]->CR1 |= ( Ptr_SPI->SPI_ClkRate << SPI_CR1_BR );
+				
+				/*********************/
+				/* enable NSS output */
+				/*********************/
+				SET_BIT( SPI[ Local_SPINumber ]->CR2, SPI_CR2_SSOE );
+			}
+			else
+			{
+				Local_Error = SPI_ClkRateError;
+			}
 		}
 		else
 		{
@@ -75,8 +114,14 @@ SPI_Errors_t SPI_Init ( SPI_t* Ptr_SPI )
 		/******************/
 		/* set data order */
 		/******************/
-		if   ( Ptr_SPI->SPI_DataOrder <= SPI_LSBFirst ) SPI[ Local_SPINumber ]->CR1 |= ( Ptr_SPI->SPI_DataOrder << SPI_CR1_LSBFIRST );
-		else                                            Local_Error = SPI_DataOrderError;
+		if ( Ptr_SPI->SPI_DataOrder <= SPI_LSBFirst )
+		{
+			SPI[ Local_SPINumber ]->CR1 |= ( Ptr_SPI->SPI_DataOrder << SPI_CR1_LSBFIRST );
+		}
+		else
+		{
+			Local_Error = SPI_DataOrderError;
+		}
 
 
 		/****************************/
@@ -88,19 +133,7 @@ SPI_Errors_t SPI_Init ( SPI_t* Ptr_SPI )
 		/***************************/
 		/* set mode to full-duplex */
 		/***************************/
-		CLR_BIT( SPI[ Local_SPINumber ]->CR1, SPI_CR1_RXONLY );
-
-
-		/**********************/
-		/* clear CR2 register */
-		/**********************/
-		SPI[ Local_SPINumber ]->CR2 = 0;
-
-
-		/**************/
-		/* enable SPI */
-		/**************/
-		SET_BIT( SPI[ Local_SPINumber ]->CR1, SPI_CR1_SPE );
+		CLR_BIT( SPI[ Local_SPINumber ]->CR1, SPI_CR1_RXONLY );		
 	}
 	else
 	{
@@ -163,38 +196,44 @@ SPI_Errors_t SPI_u8SynchTransceive( SPI_Number_t Copy_SPI, u8* Ptr_u8DataSend, u
 	/**************************/
 	return Local_Error;
 }
-u8 SPI_u8SynchTransceiveByte( SPI_Number_t Copy_SPI, u8 Local_u8DataSend)
+
+
+SPI_Errors_t SPI_State ( SPI_Number_t Copy_SPI, SPI_State_t Copy_u8Status )
 {
-			u8 Local_u8DataReceived=0;
-			/* put the data into the data register */
-			/***************************************/
-			SPI[ Copy_SPI ]->DR = Local_u8DataSend;
+	SPI_Errors_t Local_Error = SPI_NoError;
 
-
-			/*****************************************************/
-			/* wait until transmission and reception is complete */
-			/*****************************************************/
-			while ( !GET_BIT( SPI[ Copy_SPI ]->SR, SPI_SR_TXE ) );
-			while (  GET_BIT( SPI[ Copy_SPI ]->SR, SPI_SR_BSY ) );
-
-
-			/*****************************************/
-			/* put the received data to the variable */
-			/*****************************************/
-			Local_u8DataReceived = SPI[ Copy_SPI ]->DR;
-
-	return Local_u8DataReceived;
-}
-
-
-void SPI_voidChipSelect(u8 ChipSelect)
-{
-	if(ChipSelect==1)
+	if ( Copy_SPI < SPI_COUNT )
 	{
-		MDIO_u8WriteChannel(MDIO_PORTA, MDIO_PIN0,MDIO_PIN_LOW);
+		if ( Copy_u8Status == SPI_Enable )
+		{
+			/*************************/
+			/* enable SPI peripheral */
+			/*************************/
+			SET_BIT( SPI[ Copy_SPI ]->CR1, SPI_CR1_SPE );
+		}
+		else if ( Copy_u8Status == SPI_Disable )
+		{
+			/**************************/
+			/* disable SPI peripheral */
+			/**************************/
+			CLR_BIT( SPI[ Copy_SPI ]->CR1, SPI_CR1_SPE );
+		}
+		else
+		{
+			Local_Error = SPI_StateError;
+		}
+
 	}
 	else
 	{
-		MDIO_u8WriteChannel(MDIO_PORTA, MDIO_PIN0,MDIO_PIN_HIGH);
+		Local_Error = SPI_PointerError;
 	}
+
+
+	/**************************/
+	/* return the local error */
+	/**************************/
+	return Local_Error;
 }
+
+
