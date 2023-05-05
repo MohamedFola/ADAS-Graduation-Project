@@ -59,5 +59,5 @@ typedef struct
 #define USART_CPOL		10
 #define USART_CPHA		9
 
-
+#define CLOCK_FREQ		8000000UL
 #endif /* USART_PRIVATE_H_ */

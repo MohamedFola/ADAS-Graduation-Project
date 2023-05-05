@@ -7,8 +7,8 @@
 
 
 
-#include "00-LIB/STD_TYPES.h"
-#include "00-LIB/BIT_MATH.h"
+#include "../../00-LIB/STD_TYPES.h"
+#include "../../00-LIB/BIT_MATH.h"
 
 #include "USART_interface.h"
 #include "USART_config.h"
