@@ -81,10 +81,12 @@ typedef enum
 	SPI_ClkRateError     ,
 	SPI_DataOrderError   ,
 	SPI_ModeError        ,
+	SPI_StateError       ,
 }SPI_Errors_t;
 
 
-#define SPI_SW_SLAVE_SELECT  3
+#define SPI_SW_SLAVE_SELECT  0
+#define SPI_CLK_MASK         0b111
 
 
 #endif /* _SPI_PRIVATE_H_ */
