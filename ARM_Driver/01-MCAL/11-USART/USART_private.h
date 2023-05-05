@@ -1,15 +1,15 @@
-/*****************************************************************************************************/
-/************************************    Author:Mohab Ahmed    	  ************************************/
+/*********************************************************************************************************/
+/************************************    Author:Mohab Ahmed    	      ************************************/
 /************************************		Layer:MCAL            ************************************/
 /************************************   	SWC:USART             ************************************/
 /************************************		Version:1.00          ************************************/
-/*****************************************************************************************************/
+/*********************************************************************************************************/
 #ifndef USART_PRIVATE_H_
 #define USART_PRIVATE_H_
 
 
 #define USART1_BASE_ADDRESS		0x40013800
-#define USART2_BASE_ADDRESS     0x40004400
+#define USART2_BASE_ADDRESS    		0x40004400
 #define USART3_BASE_ADDRESS		0x40004800
 
 typedef struct
@@ -31,8 +31,8 @@ typedef struct
 /****************SR*************/
 #define  USART_TXE 		7
 #define  USART_TC 		6
-#define  USART_RXNE 	5
-#define  USART_IDLE 	4
+#define  USART_RXNE 		5
+#define  USART_IDLE 		4
 #define  USART_ORE 		3
 #define  USART_NE 		2
 #define  USART_FE 		1
@@ -46,8 +46,8 @@ typedef struct
 #define USART_PEIE		8
 #define USART_TXEIE		7
 #define USART_TCIE		6
-#define USART_RXNEIE	5
-#define USART_IDLEIE	4
+#define USART_RXNEIE		5
+#define USART_IDLEIE		4
 #define USART_TE		3
 #define USART_RE		2
 #define USART_RWU		1
