@@ -23,7 +23,7 @@ void HULTRASONIC_voidInit(Ultrasonic_t* Copy_Sensor)
 
 void HULTRASONIC_voidGetDistance(Ultrasonic_t* Copy_Sensor,u32* Copy_u8SensorDistance)
 {
-	/*Local variables to recieve On ticks and Period Ticks*/
+	/*Local variables to receive On ticks and Period Ticks*/
 	f32 Local_u32Time_ms=0;
 	u16 Local_u16OnTicks = 0;
 	u16 Local_u16PeriodTicks = 0;
@@ -61,7 +61,20 @@ void HULTRASONIC_voidGetDistance(Ultrasonic_t* Copy_Sensor,u32* Copy_u8SensorDis
 	// Speed of sound = 343 mm/ms
 
 	Local_u32Time_ms=Local_u16OnTicks*10;
-	*Copy_u8SensorDistance =((((Local_u32Time_ms*0.000343)/2)*10)+20);
+//	*Copy_u8SensorDistance =((((Local_u32Time_ms*0.000343)/2)*10)+20);
+	*Copy_u8SensorDistance =(Local_u32Time_ms*(f32)0.00343)/2;
 
+	if(*Copy_u8SensorDistance < 75)
+	{
+		*Copy_u8SensorDistance += 20;
+	}
+	else if (*Copy_u8SensorDistance < 110)
+	{
+		*Copy_u8SensorDistance += 30;
+	}
+	else
+	{
+		*Copy_u8SensorDistance += 40;
+	}
 
 }
