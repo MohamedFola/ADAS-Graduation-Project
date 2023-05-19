@@ -66,15 +66,28 @@ void HULTRASONIC_voidGetDistance(Ultrasonic_t* Copy_Sensor,u32* Copy_u8SensorDis
 
 	if(*Copy_u8SensorDistance < 75)
 	{
-		*Copy_u8SensorDistance += 20;
+		*Copy_u8SensorDistance += 5;
 	}
 	else if (*Copy_u8SensorDistance < 110)
 	{
-		*Copy_u8SensorDistance += 30;
+		*Copy_u8SensorDistance += 20;
+	}
+	else if(*Copy_u8SensorDistance < 400)
+	{
+		*Copy_u8SensorDistance += 40;
+
+	}
+	else if(*Copy_u8SensorDistance < 600)
+	{
+		*Copy_u8SensorDistance += 80;
+	}
+	else if(*Copy_u8SensorDistance <850)
+	{
+		*Copy_u8SensorDistance += 200;
 	}
 	else
 	{
-		*Copy_u8SensorDistance += 40;
+		*Copy_u8SensorDistance += 280;
 	}
 
 }

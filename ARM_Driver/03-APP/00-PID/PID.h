@@ -1,4 +1,4 @@
-#include "../00-LIB/STD_TYPES.h"
+#include "../../00-LIB/STD_TYPES.h"
 
 typedef struct
 {
@@ -8,8 +8,8 @@ typedef struct
 	f32 Kd;
 	
 	/*Output limits*/
-	f32 Max_Limit;
-	f32 Min_Limit;
+	s32 Max_Limit;
+	s32 Min_Limit;
 	
 	/*Integrator Limits*/
 	f32 Max_Integrator_Limit;
@@ -22,14 +22,16 @@ typedef struct
 	f32 Tau;
 	
 	/*Previous Reading*/
-	f32 prevMeasurement;		/* Required for differentiator */
-	f32 prevError;			/* Required for integrator */
+	s32 prevMeasurement;		/* Required for differentiator */
+	s32 prevError;			/* Required for integrator */
 	/*****************/
 	f32 differentiator;
 	f32   Integrator;
 
-	f32 output;
+	s32 output;
 }PID_control;
 
 void PID_init(PID_control * pid );
-f32 PID_controller_calc(PID_control *pid, f32 setpoint ,f32 RT_measurment);
+s32 PID_controller_calc(PID_control *pid, s32 setpoint ,s32 RT_measurment);
+u32 Absolute(s32 number);
+

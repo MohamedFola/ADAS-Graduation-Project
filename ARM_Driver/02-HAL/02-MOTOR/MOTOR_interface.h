@@ -31,7 +31,9 @@ typedef struct
 
 void MOTOR_voidStop ( MOTOR_t* Copy_Pins );
 
+//u8 MOTOR_voidMove ( MOTOR_t* Copy_Pins , u8 Copy_u8Direction , u16 Copy_u16Speed_Left, u16 Copy_u16Speed_Right  );
 u8 MOTOR_voidMove ( MOTOR_t* Copy_Pins , u8 Copy_u8Direction , u16 Copy_u16Speed_L, u16 Copy_u16Speed_R  );
+u16 MOTOR_u16Map(u16 InputVal,u16 Min1,u16 Max1,u16 Min2,u16 Max2);
 
 
 #endif /* _MOTOR_INTERFACE_H_ */

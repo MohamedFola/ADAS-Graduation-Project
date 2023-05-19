@@ -3,26 +3,49 @@
 void PID_init(PID_control *pid)
 {
 	pid->Integrator = 0.0f;
-	pid->prevError  = 0.0f;
+	pid->prevError  = 0;
 
 	pid->differentiator  = 0.0f;
-	pid->prevMeasurement = 0.0f;
+	pid->prevMeasurement = 0;
 
-	pid->output = 0.0f;
+	pid->output = 0;
 
 }
 
-
-f32 PID_controller_calc(PID_control *pid, f32 setpoint ,f32 RT_measurment)
+u32 Absolute(s32 number)
+{
+	if(number<0)
+	{
+		return (-1*(number));
+	}
+	else
+	{
+		return number;
+	}
+}
+s32 PID_controller_calc(PID_control *pid, s32 setpoint ,s32 RT_measurment)
 {
 	
-	f32 error;
-	f32 propotional;
-	
-	error = RT_measurment-setpoint;
-	
+	s32 error;
+	s32 propotional;
+
+
+//if(RT_measurment>0)
+//{
+//	error = RT_measurment + setpoint;
+//}
+//else if(RT_measurment<0)
+//{
+//	error = RT_measurment - setpoint;
+//}
+//else
+//{
+//	return 0;
+//}
+	error = setpoint - RT_measurment;
+
 	propotional= (pid->Kp)*error;
-	
+
 	pid -> Integrator = pid -> Integrator + 0.5f * pid->Ki * pid->Sampling_Time * (error + pid->prevError);
 	/*Clamping of integrator*/
 	if(pid -> Integrator > pid -> Max_Integrator_Limit )
@@ -56,7 +79,8 @@ f32 PID_controller_calc(PID_control *pid, f32 setpoint ,f32 RT_measurment)
 	pid -> prevError =error;
 	pid -> prevMeasurement= RT_measurment;
 	
-	
+
 	return pid -> output;
 }
+
 
