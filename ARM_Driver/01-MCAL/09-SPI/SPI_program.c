@@ -5,9 +5,11 @@
 /*             SWC     : SPI                                   */
 /***************************************************************/
 
+
 #include "../../00-LIB/STD_TYPES.h"
 #include "../../00-LIB/BIT_MATH.h"
 
+#include "../../01-MCAL/02-DIO/DIO_interface.h"
 
 #include "SPI_private.h"
 #include "SPI_interface.h"
@@ -27,7 +29,8 @@ SPI_Errors_t SPI_Init ( SPI_t* Ptr_SPI )
 	SPI_Errors_t Local_Error = SPI_NoError;
 
 	SPI_Number_t Local_SPINumber = Ptr_SPI->SPI_Number;
-	
+
+
 	/**********************/
 	/* clear CR2 register */
 	/**********************/
@@ -94,7 +97,7 @@ SPI_Errors_t SPI_Init ( SPI_t* Ptr_SPI )
 			{
 				SPI[ Local_SPINumber ]->CR1 &= ~( SPI_CLK_MASK << SPI_CR1_BR );
 				SPI[ Local_SPINumber ]->CR1 |= ( Ptr_SPI->SPI_ClkRate << SPI_CR1_BR );
-				
+
 				/*********************/
 				/* enable NSS output */
 				/*********************/
@@ -133,7 +136,7 @@ SPI_Errors_t SPI_Init ( SPI_t* Ptr_SPI )
 		/***************************/
 		/* set mode to full-duplex */
 		/***************************/
-		CLR_BIT( SPI[ Local_SPINumber ]->CR1, SPI_CR1_RXONLY );		
+		CLR_BIT( SPI[ Local_SPINumber ]->CR1, SPI_CR1_RXONLY );
 	}
 	else
 	{
@@ -150,7 +153,7 @@ SPI_Errors_t SPI_Init ( SPI_t* Ptr_SPI )
 
 
 
-SPI_Errors_t SPI_u8SynchTransceive( SPI_Number_t Copy_SPI, u8* Ptr_u8DataSend, u8* Ptr_u8DataReceived, u32 Copy_u32Size )
+SPI_Errors_t SPI_SynchTransceive( SPI_Number_t Copy_SPI, u8* Ptr_u8DataSend, u8* Ptr_u8DataReceived, u32 Copy_u32Size )
 {
 	u32 Local_u32Iterator = 0;
 
@@ -184,6 +187,44 @@ SPI_Errors_t SPI_u8SynchTransceive( SPI_Number_t Copy_SPI, u8* Ptr_u8DataSend, u
 			/**************************/
 			Local_u32Iterator++;
 		}
+	}
+	else
+	{
+		Local_Error = SPI_PointerError;
+	}
+
+
+	/**************************/
+	/* return the local error */
+	/**************************/
+	return Local_Error;
+}
+
+
+SPI_Errors_t SPI_SynchTransceiveByte( SPI_Number_t Copy_SPI, u8 Copy_u8DataSend, u8* Ptr_u8DataReceived )
+{
+	SPI_Errors_t Local_Error = SPI_NoError;
+
+	if ( Copy_SPI < SPI_COUNT )
+	{
+
+		/***************************************/
+		/* put the data into the data register */
+		/***************************************/
+		SPI[ Copy_SPI ]->DR = Copy_u8DataSend;
+
+
+		/*****************************************************/
+		/* wait until transmission and reception is complete */
+		/*****************************************************/
+		while ( !GET_BIT( SPI[ Copy_SPI ]->SR, SPI_SR_TXE ) );
+		while (  GET_BIT( SPI[ Copy_SPI ]->SR, SPI_SR_BSY ) );
+
+
+		/*****************************************/
+		/* put the received data to the variable */
+		/*****************************************/
+		( *Ptr_u8DataReceived ) = SPI[ Copy_SPI ]->DR;
 	}
 	else
 	{

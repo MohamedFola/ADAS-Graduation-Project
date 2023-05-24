@@ -1,1 +1,2 @@
 ../Src/01-MCAL/06-AFIO/AFIO_program.c:10:6:MAFIO_voidSetEXTIConfiguration	24	static
+../Src/01-MCAL/06-AFIO/AFIO_program.c:39:6:setremap	4	static

@@ -35,3 +35,8 @@ void MAFIO_voidSetEXTIConfiguration(u8 Copy_u8Line , u8 Copy_u8PortSelection)
 	/*Choosing the Port (A,B,C)*/
 	AFIO->EXTICR[Local_u8RegIndex] |= ((Copy_u8PortSelection) << (Copy_u8Line*4));
 }
+
+void setremap( void )
+{
+	SET_BIT( AFIO->MAPR , 0 );
+}

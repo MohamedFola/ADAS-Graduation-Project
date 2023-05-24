@@ -28,5 +28,7 @@
 /*Configure External Interrupt*/
 void MAFIO_voidSetEXTIConfiguration(u8 Copy_u8Line , u8 Copy_u8PortSelection);
 
+void setremap( void );
+
 
 #endif

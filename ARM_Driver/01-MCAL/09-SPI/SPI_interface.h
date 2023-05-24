@@ -112,14 +112,23 @@ typedef struct
 
 SPI_Errors_t SPI_Init ( SPI_t* Ptr_SPI );
 
-SPI_Errors_t SPI_u8SynchTransceive(
+SPI_Errors_t SPI_SynchTransceive(
 		SPI_Number_t Copy_SPI,
 		u8* Ptr_u8DataSend,
 		u8* Ptr_u8DataReceived,
 		u32 Copy_u32Size
 		);
 
-SPI_Errors_t SPI_State ( SPI_Number_t Copy_SPI, SPI_State_t Copy_u8Status );
+SPI_Errors_t SPI_SynchTransceiveByte(
+		SPI_Number_t Copy_SPI,
+		u8 Copy_u8DataSend,
+		u8* Ptr_u8DataReceived
+		);
+
+SPI_Errors_t SPI_State (
+		SPI_Number_t Copy_SPI,
+		SPI_State_t Copy_u8Status
+		);
 
 
 

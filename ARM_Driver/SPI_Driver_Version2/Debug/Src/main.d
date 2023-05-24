@@ -13,9 +13,11 @@ Src/main.o: ../Src/main.c ../Src/00-LIB/STD_TYPES.h \
  ../Src/01-MCAL/09-SPI/SPI_interface.h \
  ../Src/01-MCAL/09-SPI/SPI_private.h \
  ../Src/01-MCAL/10-PWM/PWM_interface.h \
+ ../Src/01-MCAL/11-USART/USART_interface.h \
  ../Src/02-HAL/00-ENC/ENC_interface.h \
  ../Src/02-HAL/01-ULTRASOINC/ULTRASONIC_interface.h \
- ../Src/02-HAL/02-MOTOR/MOTOR_interface.h
+ ../Src/02-HAL/02-MOTOR/MOTOR_interface.h \
+ ../Src/02-HAL/03-MCP/MCP2515_Interface.h
 ../Src/00-LIB/STD_TYPES.h:
 ../Src/00-LIB/BIT_MATH.h:
 ../Src/00-LIB/Software_Delay.h:
@@ -32,6 +34,8 @@ Src/main.o: ../Src/main.c ../Src/00-LIB/STD_TYPES.h \
 ../Src/01-MCAL/09-SPI/SPI_interface.h:
 ../Src/01-MCAL/09-SPI/SPI_private.h:
 ../Src/01-MCAL/10-PWM/PWM_interface.h:
+../Src/01-MCAL/11-USART/USART_interface.h:
 ../Src/02-HAL/00-ENC/ENC_interface.h:
 ../Src/02-HAL/01-ULTRASOINC/ULTRASONIC_interface.h:
 ../Src/02-HAL/02-MOTOR/MOTOR_interface.h:
+../Src/02-HAL/03-MCP/MCP2515_Interface.h:
