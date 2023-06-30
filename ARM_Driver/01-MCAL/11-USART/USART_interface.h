@@ -87,7 +87,7 @@ typedef struct
 	USART_Num_t 	 	USART_Number;
 	USART_BaudRate_t 	USART_BaudRate;
 	USART_DataLength_t	USART_DataLength;
-	USART_Parity_t USART_Parity;
+	USART_Parity_t	    USART_Parity;
 	USART_StopBits_t	USART_StopBits;
 	USART_ParityCheck_t USART_ParityCheck;
 

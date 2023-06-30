@@ -69,7 +69,7 @@ Capture/Compare interrupt enable
 
 
 /**Write the Prescale clock value any number between 1->65536**/
-#define 	TIM2_PRESCALE_VALUE								1
+#define 	TIM2_PRESCALE_VALUE								800
 #define 	TIM3_PRESCALE_VALUE								800
 #define 	TIM4_PRESCALE_VALUE								1
 

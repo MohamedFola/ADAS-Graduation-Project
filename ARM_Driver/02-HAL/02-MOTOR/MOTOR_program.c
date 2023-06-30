@@ -25,8 +25,15 @@ void MOTOR_voidStop ( MOTOR_t* Copy_Pins )
 }
 
 
+//u8 MOTOR_voidMove ( MOTOR_t* Copy_Pins , u8 Copy_u8Direction , u16 Copy_u16Speed_Left, u16 Copy_u16Speed_Right  )
 u8 MOTOR_voidMove ( MOTOR_t* Copy_Pins , u8 Copy_u8Direction , u16 Copy_u16Speed_L, u16 Copy_u16Speed_R  )
+
 {
+
+//	u16 Copy_u16Speed_L ,Copy_u16Speed_R;
+//	Copy_u16Speed_L = MOTOR_u16Map(Copy_u16Speed_Left, 0, 600, 0, 200);
+//	Copy_u16Speed_R = MOTOR_u16Map(Copy_u16Speed_Right, 0, 600, 0, 200);
+
 	u8 Local_u8ErrorStaus = OK;
 	static u8 Local_PerDir;
 
@@ -67,4 +74,13 @@ u8 MOTOR_voidMove ( MOTOR_t* Copy_Pins , u8 Copy_u8Direction , u16 Copy_u16Speed
 
 
 	return Local_u8ErrorStaus;
+}
+u16 MOTOR_u16Map(u16 InputVal,u16 Min1,u16 Max1,u16 Min2,u16 Max2)
+{
+	u16 Local_s32Range2Diff,Local_s32Range1Diff,Local_s32Output;
+	Local_s32Range2Diff=Max2-Min2;  // 200
+	Local_s32Range1Diff=Max1-Min1;	//600
+	Local_s32Output=(((InputVal-Min1)*Local_s32Range2Diff)/Local_s32Range1Diff)+Min2;
+	return Local_s32Output;
+
 }

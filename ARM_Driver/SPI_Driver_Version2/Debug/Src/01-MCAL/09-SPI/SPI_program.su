@@ -1,0 +1,4 @@
+../Src/01-MCAL/09-SPI/SPI_program.c:27:14:SPI_Init	24	static
+../Src/01-MCAL/09-SPI/SPI_program.c:156:14:SPI_SynchTransceive	32	static
+../Src/01-MCAL/09-SPI/SPI_program.c:204:14:SPI_SynchTransceiveByte	24	static
+../Src/01-MCAL/09-SPI/SPI_program.c:242:14:SPI_State	24	static
