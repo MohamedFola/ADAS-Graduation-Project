@@ -1,0 +1,6 @@
+../Src/01-MCAL/07-I2C/I2C_program.c:40:14:I2C_Init	24	static
+../Src/01-MCAL/07-I2C/I2C_program.c:74:14:I2C_Start	24	static
+../Src/01-MCAL/07-I2C/I2C_program.c:98:14:I2C_Stop	24	static
+../Src/01-MCAL/07-I2C/I2C_program.c:123:14:I2C_SendAddress	24	static
+../Src/01-MCAL/07-I2C/I2C_program.c:162:14:I2C_SendData	32	static
+../Src/01-MCAL/07-I2C/I2C_program.c:213:14:I2C_Read	32	static

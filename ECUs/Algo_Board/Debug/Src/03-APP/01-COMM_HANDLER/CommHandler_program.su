@@ -1,0 +1,3 @@
+../Src/03-APP/01-COMM_HANDLER/CommHandler_program.c:29:6:CommHandlerInit	24	static
+../Src/03-APP/01-COMM_HANDLER/CommHandler_program.c:40:6:CommHandlerRxIndication	72	static
+../Src/03-APP/01-COMM_HANDLER/CommHandler_program.c:117:6:CommHandlerSend	40	static

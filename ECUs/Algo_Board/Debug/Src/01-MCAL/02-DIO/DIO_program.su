@@ -1,0 +1,6 @@
+../Src/01-MCAL/02-DIO/DIO_program.c:14:4:MDIO_u8WriteChannel	24	static
+../Src/01-MCAL/02-DIO/DIO_program.c:69:4:MDIO_u8ReadChannel	24	static
+../Src/01-MCAL/02-DIO/DIO_program.c:89:4:MDIO_u8WritePort	24	static
+../Src/01-MCAL/02-DIO/DIO_program.c:108:4:MDIO_u8ReadPort	24	static
+../Src/01-MCAL/02-DIO/DIO_program.c:123:4:MDIO_voidWriteChannelGroup	24	static
+../Src/01-MCAL/02-DIO/DIO_program.c:145:4:MDIO_voidReadChannelGroup	24	static

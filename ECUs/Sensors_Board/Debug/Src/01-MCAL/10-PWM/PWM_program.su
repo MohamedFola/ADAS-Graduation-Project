@@ -1,0 +1,9 @@
+../Src/01-MCAL/10-PWM/PWM_program.c:16:6:MPWM2_voidInit	4	static
+../Src/01-MCAL/10-PWM/PWM_program.c:125:6:MPWM3_voidInit	4	static
+../Src/01-MCAL/10-PWM/PWM_program.c:230:6:MPWM4_voidInit	4	static
+../Src/01-MCAL/10-PWM/PWM_program.c:337:4:MPWM2_SetDutyCycle	24	static
+../Src/01-MCAL/10-PWM/PWM_program.c:395:4:MPWM3_SetDutyCycle	24	static
+../Src/01-MCAL/10-PWM/PWM_program.c:453:4:MPWM4_SetDutyCycle	24	static
+../Src/01-MCAL/10-PWM/PWM_program.c:510:4:MPWM2_SetPeriodAndDuty	24	static
+../Src/01-MCAL/10-PWM/PWM_program.c:561:4:MPWM3_SetPeriodAndDuty	24	static
+../Src/01-MCAL/10-PWM/PWM_program.c:613:4:MPWM4_SetPeriodAndDuty	24	static

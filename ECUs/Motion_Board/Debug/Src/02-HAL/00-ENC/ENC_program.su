@@ -1,0 +1,9 @@
+../Src/02-HAL/00-ENC/ENC_program.c:24:6:HENC_voidInit	16	static
+../Src/02-HAL/00-ENC/ENC_program.c:91:5:HENC_u8Enc1GetCounts	4	static
+../Src/02-HAL/00-ENC/ENC_program.c:95:5:HENC_u8Enc2GetCounts	4	static
+../Src/02-HAL/00-ENC/ENC_program.c:99:5:HENC_u8Enc3GetCounts	4	static
+../Src/02-HAL/00-ENC/ENC_program.c:103:5:HENC_u8Enc4GetCounts	4	static
+../Src/02-HAL/00-ENC/ENC_program.c:110:6:ENC1_ISR	16	static
+../Src/02-HAL/00-ENC/ENC_program.c:127:6:ENC2_ISR	16	static
+../Src/02-HAL/00-ENC/ENC_program.c:144:6:ENC3_ISR	16	static
+../Src/02-HAL/00-ENC/ENC_program.c:163:6:ENC4_ISR	16	static

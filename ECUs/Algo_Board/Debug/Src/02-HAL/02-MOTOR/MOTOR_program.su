@@ -1,0 +1,3 @@
+../Src/02-HAL/02-MOTOR/MOTOR_program.c:21:6:MOTOR_voidStop	16	static
+../Src/02-HAL/02-MOTOR/MOTOR_program.c:29:4:MOTOR_voidMove	32	static
+../Src/02-HAL/02-MOTOR/MOTOR_program.c:78:5:MOTOR_u16Map	24	static

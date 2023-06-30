@@ -1,0 +1,2 @@
+../Src/02-HAL/01-ULTRASOINC/ULTRASONIC_program.c:13:6:HULTRASONIC_voidInit	16	static
+../Src/02-HAL/01-ULTRASOINC/ULTRASONIC_program.c:24:6:HULTRASONIC_voidGetDistance	24	static
