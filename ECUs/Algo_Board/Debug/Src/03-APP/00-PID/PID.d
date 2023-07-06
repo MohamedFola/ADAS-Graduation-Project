@@ -1,4 +1,0 @@
-Src/03-APP/00-PID/PID.o: ../Src/03-APP/00-PID/PID.c \
- ../Src/03-APP/00-PID/PID.h ../Src/03-APP/00-PID/../../00-LIB/STD_TYPES.h
-../Src/03-APP/00-PID/PID.h:
-../Src/03-APP/00-PID/../../00-LIB/STD_TYPES.h:
